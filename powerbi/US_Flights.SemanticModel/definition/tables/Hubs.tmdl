@@ -1,0 +1,91 @@
+table Hubs
+	lineageTag: 4cf6bf37-d9ef-4d0e-b5ea-f7a8f8f134a0
+
+	measure 'Vuelos hub' = SUM(Hubs[flights])
+		formatString: #,0
+		displayFolder: KPI
+		lineageTag: 2f2a7c17-a547-4ed0-9e2e-22f3d40f7982
+
+	measure 'OTP hub' = IF(HASONEVALUE(Hubs[code]), DIVIDE(MAX(Hubs[otp]),100))
+		formatString: 0.00%
+		displayFolder: KPI
+		lineageTag: 915293d7-d639-47bf-8ec8-2497010714e4
+
+	measure 'Cancelacion hub' = IF(HASONEVALUE(Hubs[code]), DIVIDE(MAX(Hubs[cancel]),100))
+		formatString: 0.00%
+		displayFolder: KPI
+		lineageTag: a803836c-91cb-4938-bce9-c12e941727fb
+
+	measure 'Latitud hub' = MAX(Hubs[Latitude])
+		formatString: 0.0000
+		displayFolder: KPI
+		lineageTag: cd24093c-faa2-4e71-8723-663ccded4592
+
+	measure 'Longitud hub' = MAX(Hubs[Longitude])
+		formatString: 0.0000
+		displayFolder: KPI
+		lineageTag: 04ad7e9a-f54a-43f5-bf40-3d2a648692ed
+
+	column code
+		dataType: string
+		lineageTag: fd3cc42d-8db2-414a-9ed3-55d0362c3f34
+		summarizeBy: none
+		sourceColumn: code
+
+	column state
+		dataType: string
+		lineageTag: f749938d-51f5-443f-ad6a-cca257bfa7c6
+		summarizeBy: none
+		sourceColumn: state
+
+	column flights
+		dataType: int64
+		lineageTag: 639ac06b-0382-4270-b9f7-0faf7db57c8d
+		summarizeBy: sum
+		sourceColumn: flights
+
+	column otp
+		dataType: double
+		lineageTag: 65a8bbf7-3b67-4ed7-8222-2a0f30fdf8ba
+		summarizeBy: sum
+		sourceColumn: otp
+
+	column cancel
+		dataType: double
+		lineageTag: 233a77aa-0d9e-4be5-b8cf-0eb01ae381d5
+		summarizeBy: sum
+		sourceColumn: cancel
+
+	column AirportName
+		dataType: string
+		lineageTag: 5e15341f-9f05-470c-a998-c8deffbbc58d
+		summarizeBy: none
+		sourceColumn: AirportName
+
+	column AirportLabel
+		dataType: string
+		lineageTag: e96b8f2f-25b9-4791-adf2-981d5b230ac6
+		summarizeBy: none
+		sourceColumn: AirportLabel
+
+	column Latitude
+		dataType: double
+		lineageTag: c5b7c4f5-8841-49cc-b6d1-8554b11e2bf2
+		dataCategory: Latitude
+		summarizeBy: none
+		sourceColumn: Latitude
+
+	column Longitude
+		dataType: double
+		lineageTag: 3dbf2bef-76e6-48a9-be23-df44b903ce01
+		dataCategory: Longitude
+		summarizeBy: none
+		sourceColumn: Longitude
+
+	partition Hubs = m
+		mode: import
+		source =
+				let Source = Json.Document(Binary.Decompress(Binary.FromText("rZnbbttGEIZfhdBNb5ztng+5ky2fElkWLBkuUPRiYzESEZo0KCqpURTIO7RPmCfpkJLNXVKU121vElvWLOfjzuGf3V//GNzni3jwfjCcjwdHg3Vpy+q32xn88jlNlqtyPXhPlKKc4qNBXj4O3muC4Md7m93HKfwNEXE0GCbFY16UE/tQWV/Yolx/TuJ0EX2w91/WeRYNy9RmpY0uszIuMlsmeWbTaGc2eFlgbD9Vi1beRD++/x39i5XG8FG5qZgYQ5JjBR/l2XL32TvNEadK/Xn0Qn59M+onl1pgwnfkSiLukusO+ckqubfLPLr+CTyPQ2nBg5o20Loh5AQZxWmLUCGDFXMIR2d3/YRCYU7pMyFHoiGkiJM24cimqV1HZ/BJdAf/rEIhwYkaMnwBZycp0sZon9MohDn2OE8nBzkJx81OejHMeYczzr7GRTDc6WQLd9jKITIQPZL4RARzJBVzg/NkPO9HokwRop6RNFIukjDd4LRFmpdlHI3yzbLahEA6cGIXn6ELOKAC0SqBvAjFyHBGHMzx8Jd+TNg3o81z9aGINpiwUCcHx/k6GmbLOI2DAeHxNWCIqVdfDCeytYdEI461cOCmF/1wRhpehcGWDSPtsbXRpqs8zpLfo9mXp6o0fsqDAxR8qAnfsIIHyplibVCKMFbaAZ2dDvtBuVaENi2EeS2EtklnsS3LNP7x/a+5vc8fghsHuFBzBts7xVQhLnCrmBJKEcNae7E666dklNHn7VTKbxdVqnYaZfEU3cTJIjxSZ8+N8TVLZ/+g2mne3j4BndurNZfDi14waIO6KTXGzUECNasNdh7nxTKOjjfrXXm/z7MyyWJo3AfgwIEaLtC6AaQGGdPeOiMQY9LduauT635ASFzhtEHpNfpOfF4XoEIWeei2wZNrstfMHCQoI4y0WzupgtErnOf9KachbqlogtHp7AxR3amb9nxji0ViD0Tf+Ta79n3VSSSMlJLGd10xpBV3m/VJv+eKCCNN4zl1NYnqaJKb6i0uIBvs0mbRnV2vkmxZglacvN64T7ZEb1nCSSwNXby9SarWJdRBPb27OYDKhH6RJcLt4WyPtJ7E32zxJRonn+KifAoNP3Cgpgy09rZS6qrFeoAcShl3O9xo3i8wFdbYmKbwe4lFWVd3lUWelNFV9f9jniZlvR9PWRyd5JsMvO7fy/lOYb5hCQcVhAWR7YRjiAnhhu3x9ewAKueSNnrM63FGtlGP83UVYeO8CrnAnYTH14xBth4ck6IlVRQMcthIt4Gf9RdICRVWkGYf/dbW6d/g1lkBf0/W98FVEh6/bd5Bxk4aKiQpYXs6tzJu+Z9N++kkp0Y1GtOjw50ovUqyLLZVbK1BYsxskpXR1G7S/c5GP8Okky7gm6CgHyD3UjCIzqqxdk+rmE3rl/B/PsIJBI605u1JCtoBpe4k9eHsY/+rgkiqgvl5kNJucWadKP+Qr8ARFH2MgWcRXLLAg/o1hJr7NYu3owHaj1Je55yNT/oRsQZZ/hwN3I0GWNx0gz0toSd+gfqShBdlcGAX7UHWfn/VxrT1XHUWYIg3d4wPEDIlRKPniCd3SHfwSFK7iNPHVWLDR47xbuQIsPUnY0Xb6gGmSO6J1avLfvkghBGUN1rOq8NSdJPZPiTBSu5yuEvPQ0aOjoOWboTpDMBUuzTHkwM0WCgtm63yaFRHmU5Au3xN0jT49AmevRUHrxp6EwWhspVjWsIk4Gm847vLXiyuscSyET6vnKwdQ5YkD3kR/+yIM9/R+WpTLPN8EV3ZYr2y6SHmu8ttG/1vq3pRS4C9FbXwQqR2X8hs2H9CxRUxjXowbl0le+R61SRHSbwM767DyUt3PWzoHbwpxnS71ChEDHP7xdm4v9RwaSR/4WI+V7fU1AeDYwuPKhYWgvEiT9Onb9UGBHKCLzXn2xdyshYmZkVlJ2uJoG7aDm/7xSBIQWlEIwY9bNHBHm7WMOJGx3GxXINsfQg+Kb/dCsJge2dzgcco0TlVlSCGvGOB/vNxTrXgrDm+8pJYdmqTk2SjTfqGAzrwoaYMX8Ab0oxgpDOkcSHdGWY+7S/BHIQ9Jnv3kiLcwZzbh8fgNgnPrdEOGzmhqaDPi9augWIVjLkz59Xo7gAODKiiKb1eR9Gs71LjKll8s8HyBhzwLjVesfYuNaDf6c6lhhLUBRwN+0sOk9xo0gdoeu40xvnXuE+Vw9Pc2wvvq/49BVetUDOyOiRwz6Gmo/4DYSaYoaqRnsIbRDrqego/VkdKwaJstDsHfs3O2Q+BhG5fvlTTFagsT1AfuEFkTPFq6tjb22SHalYieMWbBF50PcyUwT1ud28YvoBXJxRvy2qDYYjk7ubdjG77MTFnL3dMVbs4HHc30JbA8t1oU8DQFsoIDmyPrMKsvasYrXG7EAK1d7x9MTmwjZg65V64d2h4T+EY2QxSJPqIwLl88xSsSMGFXbIF2jvVkSBGeas6EgE1k0Kw/vYP", BinaryEncoding.Base64), Compression.Deflate)),
+				Rows = Table.FromRecords(Source),
+				Typed = Table.TransformColumnTypes(Rows, {{"code", type text}, {"state", type text}, {"flights", Int64.Type}, {"otp", type number}, {"cancel", type number}, {"AirportName", type text}, {"AirportLabel", type text}, {"Latitude", type number}, {"Longitude", type number}}) in Typed
+

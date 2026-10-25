@@ -1,0 +1,9 @@
+{
+  "python_data_checks": "PASS",
+  "powerbi_embedded_snapshot": "PASS",
+  "charts_python": 12,
+  "powerbi_desktop": "NOT_RUN",
+  "dax_engine": "NOT_RUN",
+  "javascript_python_parity_cases": 19,
+  "html_ui_filters_download_offline_geo_mobile": "PASS"
+}

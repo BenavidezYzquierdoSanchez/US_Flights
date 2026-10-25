@@ -1,0 +1,110 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.3.0/schema.json",
+  "themeCollection": {
+    "customTheme": {
+      "name": "US_Flights",
+      "reportVersionAtImport": {
+        "visual": "2.14.0",
+        "report": "3.4.0",
+        "page": "2.3.1"
+      },
+      "type": "RegisteredResources"
+    }
+  },
+  "objects": {
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "resourcePackages": [
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "icon_alert_20261025.svg",
+          "path": "icon_alert_20261025.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon_ban_20261025.svg",
+          "path": "icon_ban_20261025.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon_calendar_20261025.svg",
+          "path": "icon_calendar_20261025.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon_chart_20261025.svg",
+          "path": "icon_chart_20261025.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon_clock_20261025.svg",
+          "path": "icon_clock_20261025.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon_fork_20261025.svg",
+          "path": "icon_fork_20261025.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon_globe_20261025.svg",
+          "path": "icon_globe_20261025.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon_pie_20261025.svg",
+          "path": "icon_pie_20261025.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon_pin_20261025.svg",
+          "path": "icon_pin_20261025.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon_plane_20261025.svg",
+          "path": "icon_plane_20261025.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon_sand_20261025.svg",
+          "path": "icon_sand_20261025.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon_shield_20261025.svg",
+          "path": "icon_shield_20261025.svg",
+          "type": "Image"
+        },
+        {
+          "name": "icon_tri_20261025.svg",
+          "path": "icon_tri_20261025.svg",
+          "type": "Image"
+        },
+        {
+          "name": "US_Flights",
+          "path": "US_Flights",
+          "type": "CustomTheme"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useEnhancedTooltips": false
+  }
+}

@@ -1,0 +1,16 @@
+table Radios
+	lineageTag: f4120a02-b3bd-464f-851c-2a1bdeaa9b6e
+
+	column Haul
+		dataType: string
+		lineageTag: eaeb6147-f112-410f-87a7-7599eb4f7b79
+		summarizeBy: none
+		sourceColumn: Haul
+
+	partition Radios = m
+		mode: import
+		source =
+				let Source = Json.Document(Binary.Decompress(Binary.FromText("i65W8kgszVGyUkrOLyrJV6rVgQvkpqZkogjkJBalAwViAQ==", BinaryEncoding.Base64), Compression.Deflate)),
+				Rows = Table.FromRecords(Source),
+				Typed = Table.TransformColumnTypes(Rows, {{"Haul", type text}}) in Typed
+

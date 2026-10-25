@@ -1,0 +1,109 @@
+# Marco del proyecto
+
+Adaptación del marco AeroPulse 2025 al JSON suministrado 2021–2026.
+
+## Problema y usuario objetivo
+
+Los promedios de puntualidad ocultan diferencias entre períodos, operadores y radios de vuelo. El proyecto permite localizar deterioros del servicio y dimensionar incidencias antes de proponer cambios de capacidad, reserva de aeronaves o criterios contractuales.
+
+Usuario principal: analista de red e investigación de operaciones de una aerolínea. La evidencia apoya un diagnóstico operativo; la asignación final requiere información sobre rutas, recursos, costos y conexiones.
+
+## Objetivo y alcance actualizado
+
+Comparar puntualidad, demoras, cancelaciones y desvíos en los agregados suministrados de 2021 a 2026, identificar segmentos para revisión y comunicar las limitaciones de cada fuente.
+
+El marco resume la base completa. Los KPI superiores siguen el filtro activo del dashboard; las cifras de referencia y el resumen anual de este módulo usan todos los registros. 2026 es un período parcial y no se compara como un año completo. La referencia OTP de 80% es interna, no una meta normativa verificada.
+
+## Ocho KPI de referencia de la base completa
+
+Cobertura observada: 2021-01 a 2026-05; 3,344 agregados y 65 meses. Actualización por carga del JSON; frecuencia de observación mensual. Calidad: 139 filas excluidas del análisis de causas y 7,959 operaciones sin categoría.
+
+| KPI | Fórmula | Valor | Unidad |
+| --- | --- | --- | --- |
+| Operaciones | Σops | 38,382,189 | operaciones representadas |
+| Puntualidad OTP | 100 × Σontime / Σops | 79.34 | % |
+| Demora ≥15 min | 100 × Σdelayed15 / Σops | 18.72 | % |
+| Demora ≥60 min | 100 × Σdelayed60 / Σops | 6.52 | % |
+| Demora media condicionada | ΣsumDelayMin / Σdelayed15 | 70.77 | min / llegada demorada |
+| Cancelación | 100 × Σcancel / Σops | 1.68 | % |
+| Desvíos | 100 × Σdivert / Σops | 0.23 | % |
+| Cobertura de causas válidas | 100 × Σops válidas / Σops | 92.44 | % de operaciones |
+
+## Evidencia anual recalculada 2021 a 2026
+
+Los años completos y el período parcial de 2026 se identifican por meses observados. Las diferencias son descriptivas y pueden reflejar cambios de cobertura y composición; no prueban mejoras o deterioros causales.
+
+| Año | Meses observados | Operaciones | OTP | Cancelación |
+| --- | --- | --- | --- | --- |
+| 2021 | 12 | 6,311,871 | 81.08% | 1.76% |
+| 2022 | 12 | 7,013,508 | 76.72% | 2.71% |
+| 2023 | 12 | 6,587,928 | 86.56% | 0.75% |
+| 2024 | 12 | 7,546,988 | 78.10% | 1.36% |
+| 2025 | 12 | 7,736,770 | 76.42% | 1.53% |
+| 2026 | 5 | 3,185,124 | 76.78% | 2.34% |
+
+## Hallazgos que orientan la priorización
+
+En 2025, el menor OTP mensual es 69.23% en el mes 07; el mayor es 83.14% en el mes 09. La mayor tasa de cancelación mensual es 3.13% en el mes 01. Estos cortes orientan el diagnóstico temporal; no justifican por sí solos cambios de capacidad.
+
+Comparación con meses coincidentes (01, 02, 03, 04, 05): OTP 2025 = 78.08%; OTP 2026 = 76.78%; diferencia -1.30 puntos porcentuales. Cancelación: 1.52% frente a 2.34%. La comparación iguala los meses, pero no controla la mezcla de operadores ni de radios.
+
+## Cinco decisiones y evidencia necesaria
+
+| Decisión | Evidencia disponible | Condición para actuar |
+| --- | --- | --- |
+| Revisar holgura operativa en períodos críticos | OTP y demoras por año y mes; contrastar el mismo mes entre años | Diagnosticar rutas, duración y costos antes de modificar block-time. |
+| Priorizar diagnóstico de hubs con volumen alto y OTP bajo | Resumen independiente de aeropuertos: flights, otp y cancel | No asignar reservas por mes o aerolínea: el resumen no contiene esas claves. |
+| Evaluar políticas de conexiones y rotación | Perfil horario global y OTP por radio, analizados por separado | No establecer conexiones mínimas de 45 minutos ni un corte a las 15:00: falta el cruce hora × radio × conexión. |
+| Gestionar cancelación y demora como incidencias distintas | Tasas sobre ops y composición de estados con residuo explícito | No tratar cancelados como demora cero ni sumar demora ≥60 a demora ≥15. |
+| Evaluar operadores por servicio y exposición | OTP, cancelación, desvíos, operaciones e incertidumbre Wilson | Controlar mezcla de rutas y períodos antes de contratar o sancionar. |
+
+## Preguntas que conectan el marco con las vistas
+
+| Pregunta | Variables | Vista y tarea |
+| --- | --- | --- |
+| ¿Cómo cambia OTP entre períodos equivalentes? | Year, Month, ontime, ops | Panorama y Estacionalidad · comparación temporal |
+| ¿Qué meses requieren un diagnóstico prioritario? | Period, ontime, delayed15, ops | Estacionalidad · localizar mínimos y variación |
+| ¿Predomina demora, cancelación o desvío? | delayed15, cancel, divert, Unclassified | Panorama · composición excluyente |
+| ¿Qué radio presenta menor puntualidad? | Haul, ontime, ops | Panorama · comparación categórica |
+| ¿Qué aeropuertos combinan escala y menor OTP? | Hubs: code, flights, otp, cancel; coordenadas | Geografía · localización y dispersión |
+| ¿Qué operadores combinan menor OTP y más cancelación? | Airline, ontime, ops, cancel | Aerolíneas · ranking y dispersión |
+| ¿Qué causa acumula más minutos conciliados? | Cinco causas, sumDelayMin, CauseValid | Aerolíneas · comparar minutos válidos |
+| ¿Qué precisión tiene la comparación por operador? | Airline, ontime, ops | Estacionalidad · intervalo Wilson 95% |
+
+## Datos y modelo que sí están disponibles
+
+| Componente | Granularidad o campos | Regla de uso |
+| --- | --- | --- |
+| Hecho principal | Year × Month × Airline × OriginState × Haul | Cada fila es un agregado; no un vuelo-día. |
+| Dimensiones conectadas | Calendario mensual, Aerolineas y Radios | Filtran conteos y minutos del cubo; tasas como cocientes de sumas. |
+| Origen geográfico | OriginState = US en todas las filas | No existe detalle estatal para construir un coroplético de desempeño. |
+| Resumen de hubs | code, flights, otp, cancel; coordenadas de referencia | Fuente desconectada del cubo: sin fecha ni aerolínea. |
+| Resumen horario | hour_block y avg_delay | No hay denominador ni cruce con radio o día. |
+| Microdatos ausentes | FlightDate, ArrDelay individual, Distance y conexiones | No se reconstruyen ni se sustituyen con valores artificiales. |
+
+## Control de calidad y lectura responsable
+
+Se conservan las operaciones que no concilian con las categorías de resultado como Unclassified. Las filas con causas inconsistentes se mantienen en los KPI generales y se excluyen únicamente del gráfico de causas, con tolerancia de un minuto por agregado.
+
+El resumen semanal contiene una única fila con el total de operaciones; no sustenta un patrón semanal. No hay tabla conjunta día × hora. Los límites de distancia de corto, medio y largo no están documentados en el JSON y no se importan del documento de 2025 como si fueran comprobados.
+
+Los intervalos Wilson del 95% expresan precisión bajo un modelo binomial. No miden sesgo, dependencia entre vuelos ni desempeño futuro. Una tasa alta con poco volumen no demuestra superioridad general.
+
+## Diseño visual y recorrido de lectura
+
+| Zona | Contenido | Propósito |
+| --- | --- | --- |
+| Barra lateral | Cuatro vistas analíticas, Marco del proyecto y Metodología; filtros | Orientar la navegación y definir el corte del cubo. |
+| Encabezado | Cobertura temporal, aviso de calidad y ocho KPI | Comunicar el alcance y la magnitud antes del detalle. |
+| Gráficos | Tendencias, composición, comparación, mapa e incertidumbre | Responder preguntas; acompañar cada figura con variables, propósito e interpretación. |
+| Contexto | Problema → evidencia → decisión → limitación | Permitir la sustentación académica y la revisión técnica. |
+| Color y accesibilidad | Fondo #070d18; tarjetas #10192b; acento #2ee6a6; turquesa #2ec4b6; dorado #f5b942; alerta #f07178; azul #5b8def | Mantener la paleta original; comunicar estado también mediante texto, etiquetas y leyendas. |
+
+## Qué se actualizó del documento de 2025
+
+Se conserva la lógica de problema, usuario, decisiones, preguntas y jerarquía visual de AeroPulse. El período pasa a 2021–2026 y todas las cifras de referencia de este módulo proceden del JSON actual.
+
+La descripción de 12 CSV, 40 columnas y 7,001,619 filas corresponde a un extracto descrito en el documento anterior; no define los archivos disponibles en este proyecto. La unidad actual es el agregado mensual. Los 7,736,770 de 2025 se recalculan desde este cubo y no se presentan como una validación independiente de cifras oficiales.
+
+La recomendación de restringir conexiones de 45 minutos después de las 15:00 se conserva únicamente como pregunta de investigación, no como conclusión. El análisis por estado, día de semana o cruce radio-hora queda pendiente de microdatos.

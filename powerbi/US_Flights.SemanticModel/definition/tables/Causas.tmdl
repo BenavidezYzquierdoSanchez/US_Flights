@@ -1,0 +1,22 @@
+table Causas
+	lineageTag: f6618b05-35ef-478f-9448-959a5577d462
+
+	column Campo
+		dataType: string
+		lineageTag: 29d599a6-eb31-4b7a-a5c0-5557ec3b9bf5
+		summarizeBy: none
+		sourceColumn: Campo
+
+	column Causa
+		dataType: string
+		lineageTag: 13a1f2a9-a650-46a7-b35e-48aaff4a52bb
+		summarizeBy: none
+		sourceColumn: Causa
+
+	partition Causas = m
+		mode: import
+		source =
+				let Source = Json.Document(Binary.Decompress(Binary.FromText("i65Wck7MLchXslJKTiwqykwtcknNSaxU0gEKlxYnAoUdU4vycw6vzUtNVKrVQaguT00sycBU7ZyTmYuqMC+xGF1RcGZxSWpuokLi4ZVFqfkKGn6OwZooeopTkzH0pKaXFmWmJKagKMxJLEl1zMTq5rzEslSFgqLUskyge2IB", BinaryEncoding.Base64), Compression.Deflate)),
+				Rows = Table.FromRecords(Source),
+				Typed = Table.TransformColumnTypes(Rows, {{"Campo", type text}, {"Causa", type text}}) in Typed
+

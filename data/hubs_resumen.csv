@@ -1,0 +1,36 @@
+﻿code,state,flights,otp,cancel,AirportName,AirportLabel
+ATL,US,1772420,81.0,1.15,Hartsfield Jackson Atlanta International Airport,ATL — Hartsfield Jackson Atlanta International Airport
+ORD,US,1685014,76.4,1.85,Chicago O'Hare International Airport,ORD — Chicago O'Hare International Airport
+DFW,US,1570422,74.5,2.41,Dallas Fort Worth International Airport,DFW — Dallas Fort Worth International Airport
+DEN,US,1570140,76.0,1.44,Denver International Airport,DEN — Denver International Airport
+CLT,US,1237117,78.7,1.59,Charlotte Douglas International Airport,CLT — Charlotte Douglas International Airport
+LAX,US,1014989,82.2,0.95,Los Angeles International Airport,LAX — Los Angeles International Airport
+PHX,US,969461,80.8,0.9,Phoenix Sky Harbor International Airport,PHX — Phoenix Sky Harbor International Airport
+SEA,US,948712,81.3,1.12,Seattle–Tacoma International Airport,SEA — Seattle–Tacoma International Airport
+LAS,US,932321,77.4,1.17,Harry Reid International Airport,LAS — Harry Reid International Airport
+IAH,US,850817,79.2,1.67,George Bush Intercontinental Airport,IAH — George Bush Intercontinental Airport
+MCO,US,811852,74.6,1.82,Orlando International Airport,MCO — Orlando International Airport
+LGA,US,808825,77.5,3.28,LaGuardia Airport,LGA — LaGuardia Airport
+DCA,US,715969,77.2,2.71,Ronald Reagan Washington National Airport,DCA — Ronald Reagan Washington National Airport
+EWR,US,713580,75.7,3.15,Newark Liberty International Airport,EWR — Newark Liberty International Airport
+DTW,US,708099,81.6,1.23,Detroit Metropolitan Wayne County Airport,DTW — Detroit Metropolitan Wayne County Airport
+BOS,US,704462,78.3,1.96,Boston Logan International Airport,BOS — Boston Logan International Airport
+SFO,US,699051,81.4,1.1,San Francisco International Airport,SFO — San Francisco International Airport
+MSP,US,664297,82.4,1.03,Minneapolis–Saint Paul International Airport / Wold–Chamberlain Field,MSP — Minneapolis–Saint Paul International Airport / Wold–Chamberlain Field
+JFK,US,636596,76.8,2.36,John F. Kennedy International Airport,JFK — John F. Kennedy International Airport
+SLC,US,608946,84.4,0.69,Salt Lake City International Airport,SLC — Salt Lake City International Airport
+PHL,US,603755,79.1,1.81,Philadelphia International Airport,PHL — Philadelphia International Airport
+MIA,US,559524,74.3,1.65,Miami International Airport,MIA — Miami International Airport
+BNA,US,505786,79.3,1.72,Nashville International Airport,BNA — Nashville International Airport
+BWI,US,480606,75.4,1.85,Baltimore/Washington International Thurgood Marshall Airport,BWI — Baltimore/Washington International Thurgood Marshall Airport
+SAN,US,471962,79.8,1.28,San Diego International Airport,SAN — San Diego International Airport
+FLL,US,469642,73.8,1.81,Fort Lauderdale Hollywood International Airport,FLL — Fort Lauderdale Hollywood International Airport
+AUS,US,446695,78.8,1.51,Austin Bergstrom International Airport,AUS — Austin Bergstrom International Airport
+IAD,US,428543,80.4,1.62,Washington Dulles International Airport,IAD — Washington Dulles International Airport
+TPA,US,404401,78.8,2.02,Tampa International Airport,TPA — Tampa International Airport
+MDW,US,400405,75.3,1.83,Chicago Midway International Airport,MDW — Chicago Midway International Airport
+DAL,US,364981,75.3,1.89,Dallas Love Field,DAL — Dallas Love Field
+PDX,US,353927,84.5,1.06,Portland International Airport,PDX — Portland International Airport
+STL,US,337448,79.8,1.66,St. Louis Lambert International Airport,STL — St. Louis Lambert International Airport
+RDU,US,304340,80.1,1.89,Raleigh-Durham International Airport,RDU — Raleigh-Durham International Airport
+HNL,US,302543,85.0,0.83,Daniel K. Inouye International Airport,HNL — Daniel K. Inouye International Airport

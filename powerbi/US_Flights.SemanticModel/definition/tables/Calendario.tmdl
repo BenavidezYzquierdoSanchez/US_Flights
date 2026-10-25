@@ -1,0 +1,35 @@
+table Calendario
+	lineageTag: 4fb36252-6f6b-417e-bfa1-6fc999be1877
+
+	column Period
+		dataType: string
+		lineageTag: 0f2f1480-67b3-4bf1-a9f8-3d1e16d7530a
+		summarizeBy: none
+		sourceColumn: Period
+
+	column Year
+		dataType: int64
+		lineageTag: ff487a77-2f9f-4ffd-87bd-c89dbb248900
+		summarizeBy: none
+		sourceColumn: Year
+
+	column Month
+		dataType: int64
+		lineageTag: e918596c-2107-431d-8d64-022c5394cd0b
+		summarizeBy: none
+		sourceColumn: Month
+
+	column MonthName
+		dataType: string
+		lineageTag: 8e907ce6-4d9a-42e0-b526-b8d40f0224ca
+		summarizeBy: none
+		sourceColumn: MonthName
+		sortByColumn: Month
+
+	partition Calendario = m
+		mode: import
+		source =
+				let Source = Json.Document(Binary.Decompress(Binary.FromText("ndNNS8NAFIXh/zLrCsn9mH7sBHUhtAquRFy0OmigbSSmgor/3bpwkeNEOLNLIO+dhNzn7jNcp65pH8MiSCX1SVWHSbhN6y4sfu4nYdnu++ew+L1arXfp+Oz5PnVt+Jr8ySWfyzC/SJtuZIDmB+hwwHLdfWRzy+c2zE83XbPN5Z7PHU9/zx4e83Uc1peHfZPNp/l8ivk2n8/y+Qw+/al97bP9PN/Ph/1NeumbtDv+v8yMuhrZnmo45OqhP4xMGNs/WMBV+zb+FiNLWMMWnjUPIzMEHAjnQMCBsA4EHAjnQMCBcA4EHAjlQMCBcA4EHAjnQMCBkA4EHEiBAwEHQjsQcCAFDgQcSIEDBQfKOVBwoKwDBQfKOVBwoJwDBQdKOVBwoJwDBQfKOVBwoKQDBQda4EDBgdIOFBxogQMFB1rgwMCBcQ4MHBjrwMCBcQ4MHBjnwMCBUQ4MHBjnwMCBcQ4MHBjpwMCBFTgwcGC0AwMHVuDAwIEVOHBw4JwDBwfOOnBw4JwDBwfOOXBw4JQDBwfOOXBw4JwDBwdOOnBw4AUOHBw47cDBgRc4cHDgBQ4iOIicgwgOIusggoPIOYjgIHIOIjiI/zu4/wY=", BinaryEncoding.Base64), Compression.Deflate)),
+				Rows = Table.FromRecords(Source),
+				Typed = Table.TransformColumnTypes(Rows, {{"Period", type text}, {"Year", Int64.Type}, {"Month", Int64.Type}, {"MonthName", type text}}) in Typed
+

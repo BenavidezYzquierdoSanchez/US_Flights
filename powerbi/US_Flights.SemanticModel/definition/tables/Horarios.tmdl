@@ -1,0 +1,27 @@
+table Horarios
+	lineageTag: 3666c491-be25-45df-9591-3baab841f426
+
+	measure 'Demora horaria' = IF(HASONEVALUE(Horarios[hour_block]), MAX(Horarios[avg_delay]))
+		formatString: 0.0
+		displayFolder: KPI
+		lineageTag: 05277ba5-811f-4f59-8658-f445b25616d2
+
+	column hour_block
+		dataType: double
+		lineageTag: db65c70f-a82e-47b4-8d35-d191d3369932
+		summarizeBy: none
+		sourceColumn: hour_block
+
+	column avg_delay
+		dataType: double
+		lineageTag: 027d0f4f-170a-40ee-89e6-d991c2af4613
+		summarizeBy: sum
+		sourceColumn: avg_delay
+
+	partition Horarios = m
+		mode: import
+		source =
+				let Source = Json.Document(Binary.Decompress(Binary.FromText("Zc9LCoAwDIThu3RdQhtr2noVEfGFgoIgKIh4d9dm9h/DP/Vjlv082n7bh9VUgZw13TW347R1t6lyovDavxFlYianTVJGShJtvNNIiAGxRokKQDpbMiVA0O3xm9fhkbGJHS5BEzMuhbf5AA==", BinaryEncoding.Base64), Compression.Deflate)),
+				Rows = Table.FromRecords(Source),
+				Typed = Table.TransformColumnTypes(Rows, {{"hour_block", type number}, {"avg_delay", type number}}) in Typed
+

@@ -1,0 +1,16 @@
+table Estados
+	lineageTag: 9dd2536d-811e-493e-bacd-723b0ec3bc3c
+
+	column Estado
+		dataType: string
+		lineageTag: e94921f3-5ee3-416b-90c4-2fa5496901bb
+		summarizeBy: none
+		sourceColumn: Estado
+
+	partition Estados = m
+		mode: import
+		source =
+				let Source = Json.Document(Binary.Decompress(Binary.FromText("i65Wci0uSUzJV7JSCijNKylNzEktVqrVQRJ2Sc3NL0pUeNS51NAUVcY5MS85NQfIxtBRXJaJKRycmaeQnJNYnJmWmZxYpFQbCwA=", BinaryEncoding.Base64), Compression.Deflate)),
+				Rows = Table.FromRecords(Source),
+				Typed = Table.TransformColumnTypes(Rows, {{"Estado", type text}}) in Typed
+

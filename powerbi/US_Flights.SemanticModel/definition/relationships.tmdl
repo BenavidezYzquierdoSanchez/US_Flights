@@ -1,0 +1,12 @@
+relationship a42afe66-6bc1-545e-a1eb-ce6418133bbe
+	fromColumn: Vuelos.Period
+	toColumn: Calendario.Period
+
+relationship 9e5e35c5-3a9d-5ff4-a843-998360442ca3
+	fromColumn: Vuelos.Airline
+	toColumn: Aerolineas.Airline
+
+relationship f0396a91-5c28-5665-8403-d496f9e87b84
+	fromColumn: Vuelos.Haul
+	toColumn: Radios.Haul
+

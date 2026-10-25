@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "US_Flights"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "c08f16f1-d0aa-46ef-b9da-30769a186846"
+  }
+}

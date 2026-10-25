@@ -1,0 +1,6 @@
+.project-body{padding:4px 20px 20px;color:#c5d0dc;line-height:1.65}
+.project-body p{max-width:100ch}.project-table{overflow-x:auto}
+.project-table table{width:100%;border-collapse:collapse;font-size:13px}
+.project-table th{color:#2ee6a6;background:#121c30;text-align:left}
+.project-table th,.project-table td{padding:12px;border:1px solid rgba(148,163,184,.2);vertical-align:top}
+.project-table tr:nth-child(even){background:#0d1524}.project-card h3{padding:18px 20px 6px}

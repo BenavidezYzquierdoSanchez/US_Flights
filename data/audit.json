@@ -1,0 +1,33 @@
+{
+  "rows": 3344,
+  "date_min": "2021-01",
+  "date_max": "2026-05",
+  "months_observed": 65,
+  "metrics": {
+    "ops": 38382189,
+    "otp": 79.34082394310549,
+    "delay15": 18.721965023933368,
+    "delay60": 6.521024634629359,
+    "cancelRate": 1.6831374573242814,
+    "divertRate": 0.2333373951131344,
+    "avgDelay": 70.7698182551942,
+    "unclassified": 7959,
+    "causeCoverage": 92.43502500599952
+  },
+  "duplicates": 0,
+  "nulls": 0,
+  "invalid_cause_rows": 139,
+  "unclassified_rows": 108,
+  "states": [
+    "US"
+  ],
+  "weekly_rows": 1,
+  "year_coverage": {
+    "2021": 12,
+    "2022": 12,
+    "2023": 12,
+    "2024": 12,
+    "2025": 12,
+    "2026": 5
+  }
+}

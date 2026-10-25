@@ -1,0 +1,23 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-PE
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["Vuelos", "Calendario", "Aerolineas", "Radios", "Hubs", "Horarios", "Causas", "Estados", "ConfiguracionOTP", "ConfiguracionSoporte"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Vuelos
+ref table Calendario
+ref table Aerolineas
+ref table Radios
+ref table Hubs
+ref table Horarios
+ref table Causas
+ref table Estados
+ref table ConfiguracionOTP
+ref table ConfiguracionSoporte
+

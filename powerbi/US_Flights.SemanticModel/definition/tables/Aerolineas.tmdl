@@ -1,0 +1,28 @@
+table Aerolineas
+	lineageTag: a7451593-9194-4ef4-b050-bbd9792b05dd
+
+	column Airline
+		dataType: string
+		lineageTag: e7322152-438d-42c9-9920-28b33abb711b
+		summarizeBy: none
+		sourceColumn: Airline
+
+	column AirlineName
+		dataType: string
+		lineageTag: bef6d5bb-5a29-4e80-a5e1-975e26f03797
+		summarizeBy: none
+		sourceColumn: AirlineName
+
+	column AirlineLabel
+		dataType: string
+		lineageTag: 1b962763-7107-4604-8c21-692966730b38
+		summarizeBy: none
+		sourceColumn: AirlineLabel
+
+	partition Aerolineas = m
+		mode: import
+		source =
+				let Source = Json.Document(Binary.Decompress(Binary.FromText("fdRLbsIwEAbgq0SsWfIQ3YVXokISaIAAVRcuWK1FYqM8QLRC6iF6wp6kwQaV8aRexvnzaTIe+/mzZrM0ZpzWHmqdQa1+e/RJclka8C0lB5Fa5fLfyzF5pbH8wPr5+rZA6Fy/J20bkXZCU7Yh3LouZ9i1benipIaHGI9JtiMmOlS0loNwt4XgR5p344JevjiSUwXcbUlYz0G410RwTyRJkdPK/vaa0ryLQK4/Rlyfxrn8L2tc3YD+WJp6DsIDD09CsmcpNXR24Klh0HIQHnYQPEwFzxlNDfSwI2mchLjTqJiHmL4xwvPqAXYa12m4T2loG6GOKHfZUK7TlqoWg6yLD4ZLjoQx48Fw1cHASYh704qDfBCn6iZ40+spviUg5o8QFpZbzEwd8EeS1HMQDlwET0LboAauVEFIIwNc6+4U0cxUbBCoYvUgpCczXC2j20Rwkz2ZqZJREuLTJZ4GkbIPwau3bLpUc3CXgeAcj9ecs5xuDbXO1XDpOQhHPu6wKPL3o7nHka96jKOQXy0Q79HMdKGvFlKGKQ3F3X2i++I1Zpv/7/OVajEKQnod4SunvFMjlm0EzxjH7jpSVw5InV9+AQ==", BinaryEncoding.Base64), Compression.Deflate)),
+				Rows = Table.FromRecords(Source),
+				Typed = Table.TransformColumnTypes(Rows, {{"Airline", type text}, {"AirlineName", type text}, {"AirlineLabel", type text}}) in Typed
+

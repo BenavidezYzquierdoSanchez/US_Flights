@@ -1,0 +1,6 @@
+EVALUATE
+ROW("ops", [Operaciones], "otp", [OTP]*100,
+    "delay15", [Tasa demora 15]*100, "delay60", [Tasa demora 60]*100,
+    "cancelRate", [Tasa cancelacion]*100, "divertRate", [Tasa desvios]*100,
+    "avgDelay", [Demora media], "unclassified", [Sin clasificar],
+    "causeCoverage", [Cobertura causas]*100)

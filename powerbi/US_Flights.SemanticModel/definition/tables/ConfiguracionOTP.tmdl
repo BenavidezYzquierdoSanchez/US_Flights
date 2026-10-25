@@ -1,0 +1,16 @@
+table ConfiguracionOTP
+	lineageTag: 472a6b83-341d-4d16-b47d-56accbe4f677
+
+	column Porcentaje
+		dataType: int64
+		lineageTag: d3184925-53a6-41b9-b83b-54b445764c6c
+		summarizeBy: none
+		sourceColumn: Porcentaje
+
+	partition ConfiguracionOTP = m
+		mode: import
+		source =
+				let Source = Json.Document(Binary.Decompress(Binary.FromText("bdUxTgMwDEDRu3RmaOLEcTgFO2JAqAsDSIgN9e7M5LH+6Sly7Oefy9Pn19vt4/v1/XZ5vN4f/oZ2hn6GOMM4wzxDnmGdoc6wgUnF2sA2tA1uw9sAN8QNcsPcMXffF3PH3DF3zB1zx9wxd8yBOTCHQ4E5MAfmwByYA3NgHpgH5oF5OMmYB+aBeWAemAfmiXlinpgn5un3wzwxT8wT88ScmBNzYk7MiTndGZgTc2JOzAvzwrwwL8wL88K8XHSYF+aFuTAX5sJcmAtzYS7M5XbGXJg35o15Y96YN+aNeWPemLcn5Z+bcr2//AI=", BinaryEncoding.Base64), Compression.Deflate)),
+				Rows = Table.FromRecords(Source),
+				Typed = Table.TransformColumnTypes(Rows, {{"Porcentaje", Int64.Type}}) in Typed
+

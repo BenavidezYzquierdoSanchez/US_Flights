@@ -1,0 +1,16 @@
+table ConfiguracionSoporte
+	lineageTag: 280f1a13-6369-47fa-b9b0-8e5c10549db6
+
+	column Operaciones
+		dataType: int64
+		lineageTag: fced756e-3f20-41a0-87f3-f0893920ff38
+		summarizeBy: none
+		sourceColumn: Operaciones
+
+	partition ConfiguracionSoporte = m
+		mode: import
+		source =
+				let Source = Json.Document(Binary.Decompress(Binary.FromText("i65W8i9ILUpMzszPSy1WsjI2qNVBEzLFFDI0wKYMqzqsCrGrxK4Uh1pcwga1sQA=", BinaryEncoding.Base64), Compression.Deflate)),
+				Rows = Table.FromRecords(Source),
+				Typed = Table.TransformColumnTypes(Rows, {{"Operaciones", Int64.Type}}) in Typed
+

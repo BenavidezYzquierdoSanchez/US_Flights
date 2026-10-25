@@ -1,0 +1,13 @@
+.method-intro{background:linear-gradient(110deg,#102c2b,#10192b);border:1px solid rgba(46,230,166,.3);border-radius:16px;padding:24px;margin-bottom:18px}
+.method-intro h2{margin:0 0 8px}.method-intro p{color:#b7c3d4;margin:0;line-height:1.6}
+.method-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.method-card{background:#10192b;border:1px solid rgba(148,163,184,.2);border-top:3px solid var(--method-color);border-radius:14px;padding:22px;min-width:0}
+.method-heading{display:flex;align-items:center;gap:8px;color:var(--method-color);font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.method-heading .chart-icon{color:var(--method-color);margin:0}.method-card h3{color:#e8eef8;font-size:17px;margin:14px 0 10px}.method-card p{color:#b7c3d4;font-size:14px;line-height:1.75;margin:0}
+.map-controls{display:flex;gap:8px;flex-wrap:wrap;padding:12px}.map-controls button{background:#121c30;color:#c5d0dc;border:1px solid #35465e;border-radius:9px;padding:8px 12px;cursor:pointer;font:inherit;font-size:12px}.map-controls button.active{color:#2ee6a6;border-color:#2ee6a6}
+.real-map{height:440px;min-height:300px;z-index:0;background:#162033}.map-status{color:#8b97ab;font-size:12px;margin:0;padding:8px 12px;line-height:1.5}.leaflet-popup-content{color:#172132;font-family:Manrope,Arial,sans-serif;line-height:1.6}.leaflet-container{font-family:Manrope,Arial,sans-serif}.map-legend{background:#10192b;color:#e8eef8;border:1px solid #35465e;border-radius:8px;padding:10px;font-size:11px}.map-legend span{display:inline-block;width:12px;height:12px;margin-right:5px;border-radius:50%}
+@media(max-width:800px){.method-grid{grid-template-columns:minmax(0,1fr)}}
+
+.leaflet-control-layers-toggle{background-image:none!important;display:flex;align-items:center;justify-content:center}.leaflet-control-layers-toggle:after{content:"≡";font-size:26px;color:#172132}
+.real-map.dark-tiles .leaflet-tile{filter:invert(1) hue-rotate(180deg) brightness(.82) saturate(.65)}
+.leaflet-control-layers{color:#172132}.leaflet-control-layers input{width:auto;padding:0;border:0;margin:3px}.leaflet-control-attribution{max-width:60%;line-height:1.3}
