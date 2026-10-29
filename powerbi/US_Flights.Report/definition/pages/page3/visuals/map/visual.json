@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "map",
   "position": {
-    "x": 43.481063658340048,
-    "y": 328.85576148267512,
+    "x": 38.657968313140742,
+    "y": 330.46598322460414,
     "z": 41,
     "height": 460,
     "width": 830,
@@ -145,6 +145,33 @@
             }
           }
         }
+      ],
+      "mapControls": [
+        {
+          "properties": {
+            "zoom": {
+              "expr": {
+                "Literal": {
+                  "Value": "2.33D"
+                }
+              }
+            },
+            "centerLatitude": {
+              "expr": {
+                "Literal": {
+                  "Value": "34.764115042479474D"
+                }
+              }
+            },
+            "centerLongitude": {
+              "expr": {
+                "Literal": {
+                  "Value": "-120.09690166957688D"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -218,5 +245,93 @@
         }
       ]
     }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "a4762e313c50176640ac",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Hubs"
+              }
+            },
+            "Property": "AirportLabel"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "ff56901fa07a923463b9",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Hubs"
+              }
+            },
+            "Property": "Longitud hub"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "3d505eab203ae5928e79",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Hubs"
+              }
+            },
+            "Property": "Latitud hub"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "fb08d5d537e30bbec510",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Hubs"
+              }
+            },
+            "Property": "Vuelos hub"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a82160e39174b88426cc",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Hubs"
+              }
+            },
+            "Property": "OTP hub"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "256248c0732a6e65a608",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Hubs"
+              }
+            },
+            "Property": "Cancelacion hub"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

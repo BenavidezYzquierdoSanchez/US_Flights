@@ -1,9 +1,9 @@
 table Estados
-	lineageTag: 286769ea-4916-493d-a93f-f6ba890c0382
+	lineageTag: 9575edd0-2bbe-4f5a-a20f-1fedd695f86c
 
 	column Estado
 		dataType: string
-		lineageTag: 110c525a-87d6-489d-aded-f3f7f54f9cde
+		lineageTag: 1d2fd367-2a0e-4a7e-b4ae-2049adf29dd5
 		summarizeBy: none
 		sourceColumn: Estado
 

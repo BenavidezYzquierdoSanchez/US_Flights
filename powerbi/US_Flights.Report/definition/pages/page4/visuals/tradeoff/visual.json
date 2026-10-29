@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "tradeoff",
   "position": {
-    "x": 37.679290894439951,
-    "y": 324.21434327155532,
+    "x": 44.026095060577816,
+    "y": 341.202236719478,
     "z": 41,
     "height": 400,
     "width": 830,

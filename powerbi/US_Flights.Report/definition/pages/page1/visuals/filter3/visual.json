@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "filter3",
   "position": {
-    "x": 1074.4883158742948,
-    "y": 177.53424657534245,
+    "x": 1074.9673811742778,
+    "y": 177.14818266542403,
     "z": 44,
-    "height": 87.0265914585012,
-    "width": 330.70104754230459,
+    "height": 87.232059645852743,
+    "width": 330.13979496738119,
     "tabOrder": 885
   },
   "visual": {
@@ -172,5 +172,23 @@
       "fieldChanges": true,
       "filterChanges": true
     }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "d84141ef530051033c78",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Radios"
+              }
+            },
+            "Property": "Haul"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

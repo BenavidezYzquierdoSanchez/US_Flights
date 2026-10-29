@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "season",
   "position": {
-    "x": 30.169218372280419,
-    "y": 739.14585012087025,
+    "x": 45.368126747437088,
+    "y": 745.83410997204055,
     "z": 44,
-    "height": 411.92586623690568,
-    "width": 830.81385979049151,
+    "height": 390,
+    "width": 830,
     "tabOrder": 1920
   },
   "visual": {

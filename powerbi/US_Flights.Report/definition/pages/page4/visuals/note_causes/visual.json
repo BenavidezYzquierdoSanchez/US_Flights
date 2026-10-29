@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "note_causes",
   "position": {
-    "x": 887.67929089444021,
-    "y": 744.21434327155487,
+    "x": 894.02609506057786,
+    "y": 761.202236719478,
     "z": 41,
     "height": 360,
     "width": 510,

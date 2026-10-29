@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "hourly",
   "position": {
-    "x": 891.1522965350523,
-    "y": 328.38033843674452,
+    "x": 895.36812674743715,
+    "y": 335.834109972041,
     "z": 44,
     "height": 390,
     "width": 510,

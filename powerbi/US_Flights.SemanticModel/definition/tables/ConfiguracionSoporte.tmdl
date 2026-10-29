@@ -1,9 +1,9 @@
 table ConfiguracionSoporte
-	lineageTag: 7a859572-5142-48b1-b3b6-91c9841c24dc
+	lineageTag: 95c5e0a3-6832-4a92-ac3d-0c7ad17ded82
 
 	column Operaciones
 		dataType: int64
-		lineageTag: 38fcb8b8-14f2-45c6-a1f2-2c0acf3d05ed
+		lineageTag: 95b7a9b8-77a1-4c53-8815-6c4701c57f2a
 		summarizeBy: none
 		sourceColumn: Operaciones
 

@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "airport_data",
   "position": {
-    "x": 43.481063658340048,
-    "y": 808.855761482675,
+    "x": 38.657968313140742,
+    "y": 810.46598322460477,
     "z": 41,
     "height": 330,
     "width": 1360,

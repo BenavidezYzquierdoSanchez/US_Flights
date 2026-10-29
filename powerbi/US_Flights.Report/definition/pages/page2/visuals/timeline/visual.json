@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "timeline",
   "position": {
-    "x": 30.717163577759877,
-    "y": 328.8557614826754,
+    "x": 45.368126747437088,
+    "y": 335.834109972041,
     "z": 44,
     "height": 390,
     "width": 830,

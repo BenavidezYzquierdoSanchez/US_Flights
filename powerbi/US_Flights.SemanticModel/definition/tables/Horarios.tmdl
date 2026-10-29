@@ -1,20 +1,20 @@
 table Horarios
-	lineageTag: 6ac7e08d-4f7b-4076-ba14-b9769d6a153e
+	lineageTag: cbe9f442-99b4-44d2-9254-501cfa4aca0c
 
 	measure 'Demora horaria' = IF(HASONEVALUE(Horarios[hour_block]), MAX(Horarios[avg_delay]))
 		formatString: 0.0
 		displayFolder: KPI
-		lineageTag: de1be1a0-729e-4039-8fc7-443de8ce5363
+		lineageTag: fd708e87-15dd-4b17-bfea-cbfb40eb08ce
 
 	column hour_block
 		dataType: double
-		lineageTag: 0732dfb1-4161-4eb2-aa99-71c6dd5335ef
+		lineageTag: 472d433b-82c1-4ad5-868d-1794f0decac6
 		summarizeBy: none
 		sourceColumn: hour_block
 
 	column avg_delay
 		dataType: double
-		lineageTag: 6722a8cb-95cf-4054-9a72-f976c1ededd3
+		lineageTag: f108b142-6d87-4e84-bdfe-fb97f25ba399
 		summarizeBy: sum
 		sourceColumn: avg_delay
 

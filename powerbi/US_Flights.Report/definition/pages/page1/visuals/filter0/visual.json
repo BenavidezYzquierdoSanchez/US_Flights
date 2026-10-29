@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "filter0",
   "position": {
-    "x": 39.452054794520549,
-    "y": 177.53424657534245,
+    "x": 40.260950605778191,
+    "y": 177.14818266542403,
     "z": 44,
-    "height": 87.0265914585012,
-    "width": 330.70104754230459,
+    "height": 87.232059645852743,
+    "width": 330.13979496738119,
     "tabOrder": 135
   },
   "visual": {
@@ -46,11 +46,6 @@
               }
             }
           }
-        }
-      ],
-      "general": [
-        {
-          "properties": {}
         }
       ]
     },
@@ -130,5 +125,23 @@
       "fieldChanges": true,
       "filterChanges": true
     }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "d2bde1501980c0926d34",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Calendario"
+              }
+            },
+            "Property": "Year"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "hubs",
   "position": {
-    "x": 893.48106365834,
-    "y": 328.85576148267512,
+    "x": 888.65796831314049,
+    "y": 330.46598322460414,
     "z": 41,
     "height": 460,
     "width": 510,

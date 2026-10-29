@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "uncertainty",
   "position": {
-    "x": 888.83158742949229,
-    "y": 761.19258662369054,
+    "x": 895.36812674743715,
+    "y": 745.83410997204055,
     "z": 44,
     "height": 390,
     "width": 510,
