@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "airport_data",
   "position": {
-    "x": 38.657968313140742,
-    "y": 810.46598322460477,
-    "z": 41,
+    "x": 41.038211968276855,
+    "y": 815.69574621485208,
+    "z": 0,
     "height": 330,
     "width": 1360,
-    "tabOrder": 1455
+    "tabOrder": 17000
   },
   "visual": {
     "visualType": "tableEx",

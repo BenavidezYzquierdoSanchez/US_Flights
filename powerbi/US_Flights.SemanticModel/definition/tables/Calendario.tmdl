@@ -1,27 +1,27 @@
 table Calendario
-	lineageTag: 373b64ce-cc9d-4218-a12c-58fc26941efa
+	lineageTag: a0b401b0-6897-470d-94c1-712c13e174ae
 
 	column Period
 		dataType: string
-		lineageTag: ba9ea0a6-8460-4602-a7ff-23edc67baa6f
+		lineageTag: f8e136ee-3131-42b1-8124-7e02a0908a1b
 		summarizeBy: none
 		sourceColumn: Period
 
 	column Year
 		dataType: int64
-		lineageTag: 3bddda43-afc1-46b4-8d90-e52c97a18768
+		lineageTag: c4732fad-c90f-477c-851e-7f1cb696d84b
 		summarizeBy: none
 		sourceColumn: Year
 
 	column Month
 		dataType: int64
-		lineageTag: 78638d21-8298-47fa-baf6-dbc32aa8bbd0
+		lineageTag: 7ab4c815-395c-47a0-939e-ecc7eac887de
 		summarizeBy: none
 		sourceColumn: Month
 
 	column MonthName
 		dataType: string
-		lineageTag: 57996fa0-411e-4d56-87bb-1f7c44797ff1
+		lineageTag: d926428b-5168-4da3-bb29-42fa1ce4ddef
 		summarizeBy: none
 		sourceColumn: MonthName
 		sortByColumn: Month

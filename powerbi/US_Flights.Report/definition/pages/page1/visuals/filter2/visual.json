@@ -4,10 +4,10 @@
   "position": {
     "x": 730.06523765144448,
     "y": 177.14818266542403,
-    "z": 44,
+    "z": 3000,
     "height": 87.232059645852743,
     "width": 330.13979496738119,
-    "tabOrder": 635
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "slicer",
@@ -125,23 +125,5 @@
       "fieldChanges": true,
       "filterChanges": true
     }
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "1103fc2635b53ec03e43",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Aerolineas"
-              }
-            },
-            "Property": "AirlineLabel"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

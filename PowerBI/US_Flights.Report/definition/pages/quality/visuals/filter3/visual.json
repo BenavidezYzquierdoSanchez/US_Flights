@@ -4,10 +4,10 @@
   "position": {
     "x": 1075,
     "y": 177,
-    "z": 41,
+    "z": 4000,
     "height": 76,
     "width": 330,
-    "tabOrder": 885
+    "tabOrder": 12000
   },
   "visual": {
     "visualType": "slicer",
@@ -35,53 +35,6 @@
       }
     },
     "objects": {
-      "general": [
-        {
-          "properties": {
-            "filter": {
-              "filter": {
-                "Version": 2,
-                "From": [
-                  {
-                    "Name": "r",
-                    "Entity": "Radios",
-                    "Type": 0
-                  }
-                ],
-                "Where": [
-                  {
-                    "Condition": {
-                      "In": {
-                        "Expressions": [
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Source": "r"
-                                }
-                              },
-                              "Property": "Haul"
-                            }
-                          }
-                        ],
-                        "Values": [
-                          [
-                            {
-                              "Literal": {
-                                "Value": "'corto'"
-                              }
-                            }
-                          ]
-                        ]
-                      }
-                    }
-                  }
-                ]
-              }
-            }
-          }
-        }
-      ],
       "data": [
         {
           "properties": {

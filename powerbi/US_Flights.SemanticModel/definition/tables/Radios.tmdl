@@ -1,9 +1,9 @@
 table Radios
-	lineageTag: 93d4b6ea-8d49-478c-ae68-a6d65b758dd8
+	lineageTag: 887eb7d9-5fb2-49cb-8379-e25ccd30f89a
 
 	column Haul
 		dataType: string
-		lineageTag: d7773bdf-d6b8-4384-9e4c-1769c2108e8f
+		lineageTag: e44ae1d2-4279-4a1e-bb7c-a97d4c3d582c
 		summarizeBy: none
 		sourceColumn: Haul
 

@@ -2,9 +2,9 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "ranking",
   "position": {
-    "x": 894.02609506057786,
-    "y": 341.202236719478,
-    "z": 41,
+    "x": 878.57966834895456,
+    "y": 265.09733237202607,
+    "z": 8000,
     "height": 400,
     "width": 510,
     "tabOrder": 1160

@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "hubs",
   "position": {
-    "x": 888.65796831314049,
-    "y": 330.46598322460414,
-    "z": 41,
+    "x": 891.03821196827687,
+    "y": 335.69574621485225,
+    "z": 6000,
     "height": 460,
     "width": 510,
-    "tabOrder": 1325
+    "tabOrder": 16000
   },
   "visual": {
     "visualType": "scatterChart",

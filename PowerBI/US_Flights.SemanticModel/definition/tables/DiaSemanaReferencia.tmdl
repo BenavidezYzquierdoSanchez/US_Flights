@@ -1,21 +1,21 @@
 table DiaSemanaReferencia
-	lineageTag: ac506818-1d8a-476d-8443-4e7d24eaff13
+	lineageTag: de432dae-bfc3-4eca-bf3e-483464361344
 
 	column dow
 		dataType: int64
-		lineageTag: 809fbc5c-8834-4175-90bd-9fc33e69cefa
+		lineageTag: e72c76f3-a3d0-47f1-bede-671261f56442
 		summarizeBy: none
 		sourceColumn: dow
 
 	column ops
 		dataType: int64
-		lineageTag: 4a617349-be5e-4646-b7fe-b0a11792a932
+		lineageTag: 1ebfcdff-f3af-4c93-9590-eece614a377c
 		summarizeBy: none
 		sourceColumn: ops
 
 	column otp
 		dataType: double
-		lineageTag: a1c2cc64-13ea-420b-bf78-9bdab33d8200
+		lineageTag: ef0469ff-8e93-40db-8cc3-4baa7610f901
 		summarizeBy: none
 		sourceColumn: otp
 

@@ -4,10 +4,10 @@
   "position": {
     "x": 730,
     "y": 490,
-    "z": 44,
+    "z": 8000,
     "height": 340,
     "width": 670,
-    "tabOrder": 595
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "lineClusteredColumnComboChart",
@@ -97,14 +97,14 @@
                           "Entity": "Vuelos"
                         }
                       },
-                      "Property": "ontime"
+                      "Property": "ops"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "Sum(Vuelos.ontime)",
-              "nativeQueryRef": "ontime"
+              "queryRef": "Sum(Vuelos.ops)",
+              "nativeQueryRef": "ops"
             }
           ]
         }
@@ -213,84 +213,5 @@
         }
       ]
     }
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "0e1737ac00c8c9132beb",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Calendario"
-              }
-            },
-            "Property": "Year"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "6dbccc320dcd84ea0da2",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Vuelos"
-              }
-            },
-            "Property": "Operaciones"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "4a0bdd5e75a599503cab",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Vuelos"
-              }
-            },
-            "Property": "OTP"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "27905b9d4202d437d017",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Vuelos"
-              }
-            },
-            "Property": "Referencia OTP"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "861754e9b1a6610289d5",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Vuelos"
-                  }
-                },
-                "Property": "ontime"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }
