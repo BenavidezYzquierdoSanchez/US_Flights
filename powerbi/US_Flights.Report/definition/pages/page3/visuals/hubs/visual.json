@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "hubs",
   "position": {
-    "x": 750,
-    "y": 575,
+    "x": 893.48106365834,
+    "y": 328.85576148267512,
     "z": 41,
+    "height": 460,
     "width": 510,
-    "height": 440,
     "tabOrder": 1325
   },
   "visual": {
@@ -28,6 +28,25 @@
               },
               "queryRef": "Hubs.AirportLabel",
               "nativeQueryRef": "AirportLabel",
+              "active": true
+            }
+          ]
+        },
+        "Size": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hubs"
+                    }
+                  },
+                  "Property": "Cancelacion hub"
+                }
+              },
+              "queryRef": "Hubs.Cancelacion hub",
+              "nativeQueryRef": "Cancelacion hub",
               "active": true
             }
           ]
@@ -69,25 +88,6 @@
               "active": true
             }
           ]
-        },
-        "Size": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Hubs"
-                    }
-                  },
-                  "Property": "Cancelacion hub"
-                }
-              },
-              "queryRef": "Hubs.Cancelacion hub",
-              "nativeQueryRef": "Cancelacion hub",
-              "active": true
-            }
-          ]
         }
       }
     },
@@ -107,7 +107,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#10192b'"
+                      "Value": "'#FFFFFF'"
                     }
                   }
                 }
@@ -145,7 +145,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#e8eef8'"
+                      "Value": "'#163E52'"
                     }
                   }
                 }
@@ -154,7 +154,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "14D"
+                  "Value": "13D"
                 }
               }
             }

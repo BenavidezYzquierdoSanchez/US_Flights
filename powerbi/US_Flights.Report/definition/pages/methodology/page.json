@@ -1,10 +1,10 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
   "name": "methodology",
-  "displayName": "Metodología",
+  "displayName": "Acerca Del Modelo",
   "displayOption": "FitToWidth",
-  "width": 1280,
-  "height": 2260,
+  "width": 1440,
+  "height": 1760,
   "objects": {
     "background": [
       {
@@ -14,7 +14,7 @@
               "color": {
                 "expr": {
                   "Literal": {
-                    "Value": "'#070d18'"
+                    "Value": "'#F2F5FA'"
                   }
                 }
               }

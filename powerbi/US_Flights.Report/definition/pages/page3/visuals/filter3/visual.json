@@ -1,21 +1,16 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "filter3",
   "position": {
-    "x": 770,
-    "y": 115,
+    "x": 1075,
+    "y": 177,
     "z": 41,
-    "width": 235,
-    "height": 65,
+    "height": 76,
+    "width": 330,
     "tabOrder": 885
   },
   "visual": {
     "visualType": "slicer",
-    "syncGroup": {
-      "groupName": "US_Flights_filter3",
-      "fieldChanges": true,
-      "filterChanges": true
-    },
     "query": {
       "queryState": {
         "Values": {
@@ -39,6 +34,68 @@
         }
       }
     },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "filter": {
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "r",
+                    "Entity": "Radios",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "In": {
+                        "Expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "r"
+                                }
+                              },
+                              "Property": "Haul"
+                            }
+                          }
+                        ],
+                        "Values": [
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'corto'"
+                              }
+                            }
+                          ]
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "visualContainerObjects": {
       "background": [
         {
@@ -55,7 +112,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#10192b'"
+                      "Value": "'#FFFFFF'"
                     }
                   }
                 }
@@ -93,7 +150,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#e8eef8'"
+                      "Value": "'#163E52'"
                     }
                   }
                 }
@@ -109,6 +166,11 @@
           }
         }
       ]
+    },
+    "syncGroup": {
+      "groupName": "US_Flights_filter3",
+      "fieldChanges": true,
+      "filterChanges": true
     }
   }
 }

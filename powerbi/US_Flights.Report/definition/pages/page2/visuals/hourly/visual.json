@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "hourly",
   "position": {
-    "x": 750,
-    "y": 1100,
+    "x": 891.1522965350523,
+    "y": 328.38033843674452,
     "z": 44,
-    "height": 420,
+    "height": 390,
     "width": 510,
     "tabOrder": 1850
   },
@@ -86,7 +86,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#10192b'"
+                      "Value": "'#FFFFFF'"
                     }
                   }
                 }
@@ -124,7 +124,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#e8eef8'"
+                      "Value": "'#163E52'"
                     }
                   }
                 }
@@ -133,7 +133,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "14D"
+                  "Value": "13D"
                 }
               }
             }

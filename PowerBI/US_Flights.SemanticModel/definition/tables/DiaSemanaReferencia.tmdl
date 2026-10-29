@@ -1,0 +1,28 @@
+table DiaSemanaReferencia
+	lineageTag: e13cd0e8-8d58-44e6-84dc-06df186333b1
+
+	column dow
+		dataType: int64
+		lineageTag: 9a406c0f-263a-4800-9ae7-dad41b6e9b3f
+		summarizeBy: none
+		sourceColumn: dow
+
+	column ops
+		dataType: int64
+		lineageTag: 51e5642c-ec82-46c5-a072-1126d9367f1e
+		summarizeBy: none
+		sourceColumn: ops
+
+	column otp
+		dataType: double
+		lineageTag: b1ce4330-37e5-49e7-9a38-d4f0884dac30
+		summarizeBy: none
+		sourceColumn: otp
+
+	partition DiaSemanaReferencia = m
+		mode: import
+		source =
+				let Source = Json.Document(Binary.Decompress(Binary.FromText("i65WSskvV7Iy1FHKLyhWsjK2MLYwMrSwBHJLCpSszC31jE1qYwE=", BinaryEncoding.Base64), Compression.Deflate)),
+				Rows = Table.FromRecords(Source),
+				Typed = Table.TransformColumnTypes(Rows, {{"dow", Int64.Type}, {"ops", Int64.Type}, {"otp", type number}}) in Typed
+

@@ -6,7 +6,7 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["Vuelos", "Calendario", "Aerolineas", "Radios", "Hubs", "Horarios", "Causas", "Estados", "ConfiguracionOTP", "ConfiguracionSoporte"]
+annotation PBI_QueryOrder = ["Vuelos","Calendario","Aerolineas","Radios","Hubs","Horarios","Causas","Estados","ConfiguracionOTP","ConfiguracionSoporte","DiaSemanaReferencia"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
@@ -20,4 +20,5 @@ ref table Causas
 ref table Estados
 ref table ConfiguracionOTP
 ref table ConfiguracionSoporte
+ref table DiaSemanaReferencia
 

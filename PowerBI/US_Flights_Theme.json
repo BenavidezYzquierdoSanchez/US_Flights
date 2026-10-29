@@ -1,0 +1,75 @@
+{
+  "name": "AeroPulse Studio | Executive 2026",
+  "dataColors": [
+    "#12304A",
+    "#087E8B",
+    "#2667A8",
+    "#D96059",
+    "#C68C30",
+    "#6555A4",
+    "#2B8269",
+    "#385B84"
+  ],
+  "background": "#F2F5FA",
+  "foreground": "#16324B",
+  "tableAccent": "#087E8B",
+  "good": "#3BBA92",
+  "neutral": "#EBA74B",
+  "bad": "#EF6A68",
+  "textClasses": {
+    "label": {
+      "fontFace": "Aptos",
+      "color": "#697E8B"
+    },
+    "callout": {
+      "fontFace": "Aptos Display",
+      "color": "#102B3F"
+    },
+    "title": {
+      "fontFace": "Aptos Display",
+      "color": "#163E52"
+    },
+    "header": {
+      "fontFace": "Aptos Display",
+      "color": "#163E52"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "title": [
+          {
+            "show": true,
+            "fontSize": 13,
+            "fontFamily": "Aptos Display",
+            "fontColor": {
+              "solid": {
+                "color": "#163E52"
+              }
+            }
+          }
+        ],
+        "legend": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#697E8B"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

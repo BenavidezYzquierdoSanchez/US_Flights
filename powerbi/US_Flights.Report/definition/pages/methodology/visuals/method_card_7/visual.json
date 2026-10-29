@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "method_card_7",
   "position": {
-    "x": 650,
-    "y": 1190,
+    "x": 500,
+    "y": 965,
     "z": 14,
-    "width": 610,
+    "width": 440,
     "height": 330,
     "tabOrder": 1840
   },
@@ -27,7 +27,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#10192b'"
+                      "Value": "'#FFFFFF'"
                     }
                   }
                 }
@@ -55,8 +55,8 @@
                     "value": "Wilson 95%",
                     "textStyle": {
                       "fontSize": "12pt",
-                      "fontFamily": "Segoe UI",
-                      "color": "#b07cff"
+                      "fontFamily": "Aptos",
+                      "color": "#243750"
                     }
                   }
                 ]
@@ -67,8 +67,8 @@
                     "value": "",
                     "textStyle": {
                       "fontSize": "12pt",
-                      "fontFamily": "Segoe UI",
-                      "color": "#e8eef8"
+                      "fontFamily": "Aptos",
+                      "color": "#243750"
                     }
                   }
                 ]
@@ -79,8 +79,8 @@
                     "value": "8. Qué significa la incertidumbre",
                     "textStyle": {
                       "fontSize": "15pt",
-                      "fontFamily": "Segoe UI",
-                      "color": "#e8eef8"
+                      "fontFamily": "Aptos",
+                      "color": "#243750"
                     }
                   }
                 ]
@@ -91,8 +91,8 @@
                     "value": "",
                     "textStyle": {
                       "fontSize": "12pt",
-                      "fontFamily": "Segoe UI",
-                      "color": "#e8eef8"
+                      "fontFamily": "Aptos",
+                      "color": "#243750"
                     }
                   }
                 ]
@@ -103,8 +103,8 @@
                     "value": "El intervalo Wilson describe precisión bajo un modelo binomial con independencia entre operaciones. No mide sesgo, errores del origen, dependencia entre vuelos ni desempeño futuro. El soporte mínimo de 30 es un filtro de volumen, no una garantía de representatividad.",
                     "textStyle": {
                       "fontSize": "12pt",
-                      "fontFamily": "Segoe UI",
-                      "color": "#e8eef8"
+                      "fontFamily": "Aptos",
+                      "color": "#243750"
                     }
                   }
                 ]

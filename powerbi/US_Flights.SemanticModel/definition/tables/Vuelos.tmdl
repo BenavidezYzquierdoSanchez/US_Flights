@@ -1,129 +1,129 @@
 table Vuelos
-	lineageTag: 8aef099b-32ce-4460-a0c9-a2b3e3e1f6ba
+	lineageTag: 9f31c85b-0e3e-44e3-86e4-fd506ecf8ac7
 
 	measure 'Soporte minimo' = SELECTEDVALUE(ConfiguracionSoporte[Operaciones], 30)
 		formatString: #,0
 		displayFolder: KPI
-		lineageTag: 0cdc2f77-84fc-408c-ba8d-3585894c7a4a
+		lineageTag: 4d892dbd-35cc-4998-9fb6-fdbc760972fe
 
 	measure 'Meta OTP' = DIVIDE(SELECTEDVALUE(ConfiguracionOTP[Porcentaje], 80), 100)
 		formatString: 0%
 		displayFolder: KPI
-		lineageTag: 11faa25b-21a5-4a7e-b956-cbceed1f6777
+		lineageTag: 991b00e1-51c9-4f91-ae11-6d932cb03656
 
 	measure 'Estado OTP' = IF(ISBLANK([OTP]), "Sin datos", IF([OTP] >= [Meta OTP], "Cumple", "Bajo") & " ref. " & FORMAT([Meta OTP], "0%"))
 		displayFolder: KPI
-		lineageTag: a60be889-ac7b-4538-b6d6-3a4034135943
+		lineageTag: 64358bfa-14de-433e-9476-ee87d0a023cc
 
 	measure Operaciones = SUM(Vuelos[ops])
 		formatString: #,0
 		displayFolder: KPI
-		lineageTag: aa28fe83-6e21-4393-9608-0e28b3f9e3bd
+		lineageTag: 2335ad61-7362-44c9-a5b9-2eab6c12df3f
 
 	measure Puntuales = SUM(Vuelos[ontime])
 		formatString: #,0
 		displayFolder: KPI
-		lineageTag: b26bd761-cc7c-4a1c-ba0e-3a04da8443ec
+		lineageTag: 5ef9667d-f4cd-40b6-ba3b-95ed15b48a95
 
 	measure 'Demorados 15' = SUM(Vuelos[delayed15])
 		formatString: #,0
 		displayFolder: KPI
-		lineageTag: e1ed4071-b1dc-4d27-a979-6bf667f2d75e
+		lineageTag: d86eeb93-ecec-4358-ae07-f7f732fea0e0
 
 	measure 'Demorados 60' = SUM(Vuelos[delayed60])
 		formatString: #,0
 		displayFolder: KPI
-		lineageTag: 854d6c90-dea5-4adc-bc87-f85b23cbac1e
+		lineageTag: 3556b14c-e33a-4998-860f-d3839c8a7c23
 
 	measure OTP = DIVIDE([Puntuales], [Operaciones])
 		formatString: 0.00%
 		displayFolder: KPI
-		lineageTag: 39ea5672-bd00-4935-a0cf-8c5d9cb1b463
+		lineageTag: 8fb570ff-c5d7-4ffb-aef8-4d07c4f5bf27
 
 	measure 'Tasa demora 15' = DIVIDE([Demorados 15], [Operaciones])
 		formatString: 0.00%
 		displayFolder: KPI
-		lineageTag: c7ff2c16-dbe6-432b-a963-07f3e5c6f2ac
+		lineageTag: c8ac5edc-6f0d-42b6-a972-6c7ecf6ee09a
 
 	measure 'Tasa demora 60' = DIVIDE([Demorados 60], [Operaciones])
 		formatString: 0.00%
 		displayFolder: KPI
-		lineageTag: 5df9657c-1c7c-490e-8aa2-be7d4ff3830f
+		lineageTag: 9e94efda-f4fe-4763-9561-be8524a656fd
 
 	measure 'Tasa cancelacion' = DIVIDE(SUM(Vuelos[cancel]), [Operaciones])
 		formatString: 0.00%
 		displayFolder: KPI
-		lineageTag: 68574fff-ac61-4e0e-a329-690068ca4009
+		lineageTag: 80672fff-d00d-45c0-b68a-e4a2427bdc89
 
 	measure 'Tasa desvios' = DIVIDE(SUM(Vuelos[divert]), [Operaciones])
 		formatString: 0.00%
 		displayFolder: KPI
-		lineageTag: 13216c02-fd46-442c-88b2-68bd249de50f
+		lineageTag: f8a22c9e-a475-42d1-b88e-a8cbd7a33302
 
 	measure 'Demora media' = DIVIDE(SUM(Vuelos[sumDelayMin]), [Demorados 15])
 		formatString: 0.00
 		displayFolder: KPI
-		lineageTag: 75501f74-d481-4161-b598-b2a25c1ef5e5
+		lineageTag: f056f0c6-c3a3-4fda-98d3-dad3d3e51aef
 
 	measure 'Sin clasificar' = SUM(Vuelos[Unclassified])
 		formatString: #,0
 		displayFolder: KPI
-		lineageTag: 5f015c2d-aa76-4685-b063-a49473260273
+		lineageTag: eb45245a-9474-44c5-bfb7-9b52e12d43ef
 
 	measure 'Filas causas excluidas' = COUNTROWS(FILTER(Vuelos, NOT(Vuelos[CauseValid])))
 		formatString: #,0
 		displayFolder: KPI
-		lineageTag: 88f2af45-eb2b-4020-9977-d8fe8d7e609c
+		lineageTag: 995177a0-dd5d-47b0-8ae1-04cb970f86b2
 
 	measure 'Cobertura causas' = DIVIDE(CALCULATE([Operaciones], Vuelos[CauseValid] = TRUE()), [Operaciones])
 		formatString: 0.00%
 		displayFolder: KPI
-		lineageTag: 4028cfd8-ec4e-459d-8ab0-b4a0de23e060
+		lineageTag: 45a3d1c6-fa93-4e75-a9c6-bdb5e330de9d
 
 	measure 'OTP soporte' = IF([Operaciones] >= [Soporte minimo], [OTP])
 		formatString: 0.00%
 		displayFolder: KPI
-		lineageTag: 7406d8c2-4f0f-4bb8-accd-e65e3020bd27
+		lineageTag: 6e842211-a404-47e3-acec-0c331c190c87
 
 	measure 'Operaciones soporte' = IF([Operaciones] >= [Soporte minimo], [Operaciones])
 		formatString: #,0
 		displayFolder: KPI
-		lineageTag: 3af2088d-9768-40eb-b224-65a6c3c3cdc7
+		lineageTag: 6053e1f1-7117-4323-bd06-d103d80aa990
 
 	measure 'Cancelacion soporte' = IF([Operaciones] >= [Soporte minimo], [Tasa cancelacion])
 		formatString: 0.00%
 		displayFolder: KPI
-		lineageTag: 9efde442-7865-468c-81df-8f3d7ff89ea9
+		lineageTag: e800036c-7419-49b1-97a0-8058cdc81555
 
 	measure 'Referencia OTP' = IF([Operaciones] > 0, [Meta OTP])
 		formatString: 0.00%
 		displayFolder: KPI
-		lineageTag: 42506c77-0fc8-49e8-beeb-4087be141b30
+		lineageTag: b86d5df9-cf73-49c3-ab53-f8c5638e1884
 
 	measure 'Wilson inferior' = VAR n = [Operaciones] RETURN IF(n >= [Soporte minimo] && n > 0, VAR p = [OTP] VAR z = 1.96 VAR den = 1 + z*z/n VAR c = (p + z*z/(2*n))/den VAR h = z*SQRT(p*(1-p)/n + z*z/(4*n*n))/den RETURN c-h)
 		formatString: 0.00%
 		displayFolder: KPI
-		lineageTag: 1ffae7e7-3b82-47eb-b4ca-806bd6cadd44
+		lineageTag: 74784624-07e1-4b0a-ba29-0511cdf4104f
 
 	measure 'Wilson superior' = VAR n = [Operaciones] RETURN IF(n >= [Soporte minimo] && n > 0, VAR p = [OTP] VAR z = 1.96 VAR den = 1 + z*z/n VAR c = (p + z*z/(2*n))/den VAR h = z*SQRT(p*(1-p)/n + z*z/(4*n*n))/den RETURN c+h)
 		formatString: 0.00%
 		displayFolder: KPI
-		lineageTag: 9877d409-855d-4e4e-ad34-175e710b8b1b
+		lineageTag: 1205d6ec-b413-48f7-b733-a424a47d3efc
 
 	measure 'Operaciones por estado' = SWITCH(SELECTEDVALUE(Estados[Estado]), "Puntuales", [Puntuales], "Demora ≥15", [Demorados 15], "Cancelados", SUM(Vuelos[cancel]), "Desviados", SUM(Vuelos[divert]), "Sin clasificar", [Sin clasificar])
 		formatString: #,0
 		displayFolder: KPI
-		lineageTag: 7e9eb46c-fad8-43f1-a0c4-3280089471cb
+		lineageTag: 6ece9bfe-09cb-4575-a8ab-5465e7247e21
 
 	measure 'Minutos causa' = VAR campo = SELECTEDVALUE(Causas[Campo]) RETURN SWITCH(campo, "carrierDelay", CALCULATE(SUM(Vuelos[carrierDelay]), Vuelos[CauseValid]=TRUE()), "weatherDelay", CALCULATE(SUM(Vuelos[weatherDelay]), Vuelos[CauseValid]=TRUE()), "nasDelay", CALCULATE(SUM(Vuelos[nasDelay]), Vuelos[CauseValid]=TRUE()), "secDelay", CALCULATE(SUM(Vuelos[secDelay]), Vuelos[CauseValid]=TRUE()), "lateAirDelay", CALCULATE(SUM(Vuelos[lateAirDelay]), Vuelos[CauseValid]=TRUE()))
 		formatString: #,0
 		displayFolder: KPI
-		lineageTag: 090381a4-d18c-4962-a193-72ff92441f48
+		lineageTag: 6c507613-06a7-4be2-8baf-03bc2e308511
 
 	measure 'Total minutos conciliados' = SUMX(ALL(Causas), [Minutos causa])
 		formatString: #,0
 		displayFolder: KPI
-		lineageTag: d376b7a8-492f-42df-aabe-13d322217102
+		lineageTag: 2b831a46-f65c-4f87-9440-ad9446427fff
 
 	measure 'Lectura annual' =
 			VAR tab = FILTER(ADDCOLUMNS(VALUES(Calendario[Year]), "pct", [OTP]), NOT ISBLANK([pct]))
@@ -131,11 +131,11 @@ table Vuelos
 			VAR lo = TOPN(1, tab, [pct], ASC, Calendario[Year], ASC)
 			RETURN "Variables: Year; ops (barras); ontime / ops (%) (línea). Propósito: Barras y línea comparan volumen y nivel de servicio en ejes distintos. Comparar períodos equivalentes: 2026 termina en mayo. Interpretación: " & (IF([Operaciones]=0, "Sin datos para el filtro.", "Mayor OTP: " & CONCATENATEX(hi, Calendario[Year] & " (" & FORMAT([pct], "0.00%") & ")") & "; menor: " & CONCATENATEX(lo, Calendario[Year] & " (" & FORMAT([pct], "0.00%") & ")") & ". Revisar períodos bajos. Comparar coberturas equivalentes: 2026 termina en mayo."))
 		displayFolder: Interpretaciones
-		lineageTag: 0a4086d8-9900-4415-a2ed-a744b273f1f2
+		lineageTag: b7c1dccc-4923-4c28-bc31-14ff3615e988
 
 	measure 'Lectura mix' = RETURN "Variables: ontime, delayed15, cancel, divert, Unclassified (conteos). Propósito: La dona representa proporciones de categorías excluyentes y conserva el residuo sin clasificar. delayed60 es subconjunto de delayed15. Interpretación: " & (IF([Operaciones]=0, "Sin datos para el filtro.", "Puntualidad: " & FORMAT([OTP], "0.00%") & "; operaciones sin categoría: " & FORMAT([Sin clasificar], "#,0") & ". Conservar el residuo y revisar incidencias; demora >=60 es parte de >=15."))
 		displayFolder: Interpretaciones
-		lineageTag: 9263c151-09a7-4436-aa27-d55cd3e422d5
+		lineageTag: 21621bee-e785-4699-a650-05f2b9e97639
 
 	measure 'Lectura haul' =
 			VAR tab = FILTER(ADDCOLUMNS(VALUES(Radios[Haul]), "pct", [OTP], "n", [Operaciones]), [n]>=[Soporte minimo])
@@ -143,7 +143,7 @@ table Vuelos
 			VAR lo = TOPN(1, tab, [pct], ASC, Radios[Haul], ASC)
 			RETURN "Variables: Haul (categoría); ontime / ops (%). Propósito: Comparar radios orienta la asignación de recursos; los límites de distancia del radio no están documentados en el JSON. Interpretación: " & (IF(COUNTROWS(tab)=0,"Sin categorías con el soporte seleccionado.", "Mayor OTP: " & CONCATENATEX(hi, Radios[Haul] & " (" & FORMAT([pct], "0.00%") & ", N=" & FORMAT([n],"#,0") & ")") & "; menor: " & CONCATENATEX(lo, Radios[Haul] & " (" & FORMAT([pct], "0.00%") & ")") & ". Priorizar diagnóstico. La comparación no controla la mezcla de rutas y períodos ni demuestra causalidad."))
 		displayFolder: Interpretaciones
-		lineageTag: a7d8757f-8100-49e0-b047-8b7524f80f25
+		lineageTag: 5dd544c9-baf6-4ce2-8f21-46640130993e
 
 	measure 'Lectura timeline' =
 			VAR tab = FILTER(ADDCOLUMNS(VALUES(Calendario[Period]), "pct", [OTP]), NOT ISBLANK([pct]))
@@ -151,7 +151,7 @@ table Vuelos
 			VAR lo = TOPN(1, tab, [pct], ASC, Calendario[Period], ASC)
 			RETURN "Variables: Year-Month; ontime / ops (%). Propósito: El orden cronológico distingue cambios en el tiempo. Los meses sin observación son huecos, nunca ceros. Interpretación: " & (IF([Operaciones]=0, "Sin datos para el filtro.", "Mayor OTP: " & CONCATENATEX(hi, Calendario[Period] & " (" & FORMAT([pct], "0.00%") & ")") & "; menor: " & CONCATENATEX(lo, Calendario[Period] & " (" & FORMAT([pct], "0.00%") & ")") & ". Revisar períodos bajos. Comparar coberturas equivalentes: 2026 termina en mayo."))
 		displayFolder: Interpretaciones
-		lineageTag: ab78fdb1-fa22-4230-bbec-f3de6e12eb77
+		lineageTag: 78b77ab8-f6f7-4603-b18a-954a118e74bc
 
 	measure 'Lectura season' =
 			VAR tab = FILTER(ADDCOLUMNS(VALUES(Calendario[MonthName]), "pct", [OTP]), NOT ISBLANK([pct]))
@@ -159,7 +159,7 @@ table Vuelos
 			VAR lo = TOPN(1, tab, [pct], ASC, Calendario[MonthName], ASC)
 			RETURN "Variables: Year, Month; ops; Σontime / Σops; cancel / ops (%). Propósito: Las curvas comparan los años por mes; con un año seleccionado se combina volumen, OTP y cancelación. La composición de aerolíneas y la cobertura pueden cambiar. Interpretación: " & (IF([Operaciones]=0, "Sin datos para el filtro.", "Mayor OTP: " & CONCATENATEX(hi, Calendario[MonthName] & " (" & FORMAT([pct], "0.00%") & ")") & "; menor: " & CONCATENATEX(lo, Calendario[MonthName] & " (" & FORMAT([pct], "0.00%") & ")") & ". Revisar períodos bajos. Comparar coberturas equivalentes: 2026 termina en mayo."))
 		displayFolder: Interpretaciones
-		lineageTag: eb5cf4aa-d589-491a-a1fa-7fa7cb169336
+		lineageTag: 3ff1b080-5946-44fb-95b0-3b9b3689dc1b
 
 	measure 'Lectura uncertainty' =
 			VAR tab = FILTER(ADDCOLUMNS(VALUES(Aerolineas[AirlineLabel]), "pct", [OTP], "n", [Operaciones]), [n]>=[Soporte minimo])
@@ -167,19 +167,19 @@ table Vuelos
 			VAR lo = TOPN(1, tab, [pct], ASC, Aerolineas[AirlineLabel], ASC)
 			RETURN "Variables: Airline; ontime; ops; límite inferior y superior (%). Propósito: Las barras de error expresan precisión bajo un modelo binomial. No cuantifican sesgo ni dependencia entre vuelos. Interpretación: " & (IF(COUNTROWS(tab)=0,"Sin categorías con el soporte seleccionado.", "Mayor OTP: " & CONCATENATEX(hi, Aerolineas[AirlineLabel] & " (" & FORMAT([pct], "0.00%") & ", N=" & FORMAT([n],"#,0") & ")") & "; menor: " & CONCATENATEX(lo, Aerolineas[AirlineLabel] & " (" & FORMAT([pct], "0.00%") & ")") & ". Priorizar diagnóstico. Wilson 95% supone independencia binomial; no cuantifica sesgo ni dependencia."))
 		displayFolder: Interpretaciones
-		lineageTag: 0776ebe6-a781-42f6-b9d3-95068bbea725
+		lineageTag: 05eabc50-6a94-463f-89d5-be9db6dc4284
 
 	measure 'Lectura hourly' = VAR tab=ADDCOLUMNS(VALUES(Horarios[hour_block]),"mins",CALCULATE(MAX(Horarios[avg_delay]))) VAR hi=TOPN(1,tab,[mins],DESC,Horarios[hour_block],ASC) VAR lo=TOPN(1,tab,[mins],ASC,Horarios[hour_block],ASC) RETURN "Variables: hour_block (hora); avg_delay (minutos). Propósito: La línea compara el resumen horario suministrado. No hay conteos ni claves para ponderarlo o filtrarlo con el cubo. Interpretación: " & ("Mínimo horario: " & CONCATENATEX(lo,FORMAT(Horarios[hour_block],"00") & ":00, " & FORMAT([mins],"0.0") & " min") & "; máximo: " & CONCATENATEX(hi,FORMAT(Horarios[hour_block],"00") & ":00, " & FORMAT([mins],"0.0") & " min") & ". Resumen global: no tiene denominador ni período y no demuestra efecto cascada.")
 		displayFolder: Interpretaciones
-		lineageTag: 4b90235e-5dba-4c00-bedd-ffbe24b4d1fa
+		lineageTag: b56772d0-177a-4c9f-8bbc-17d2ca9b5a59
 
 	measure 'Lectura map' = VAR tab=ADDCOLUMNS(VALUES(Hubs[AirportLabel]),"pct",CALCULATE(MAX(Hubs[otp]))) VAR lo=TOPN(1,tab,[pct],ASC,Hubs[AirportLabel],ASC) RETURN "Variables: Latitud, longitud (coordenadas); otp (%); flights (conteo). Propósito: La ubicación permite explorar concentraciones espaciales. Son aeropuertos seleccionados; no se deriva un mapa estatal. Interpretación: " & ("Menor OTP del resumen mostrado: " & CONCATENATEX(lo,Hubs[AirportLabel] & " (" & FORMAT([pct]/100,"0.00%") & ")") & ". Priorizar diagnóstico con volumen y cancelación. Resumen independiente sin fecha ni aerolínea; los filtros del cubo no se aplican.")
 		displayFolder: Interpretaciones
-		lineageTag: 2f59dee0-6220-47d8-80e5-9ed9fc726556
+		lineageTag: 072bfa93-46d2-44f9-86de-31a23ffb77cd
 
 	measure 'Lectura hubs' = VAR tab=ADDCOLUMNS(VALUES(Hubs[AirportLabel]),"pct",CALCULATE(MAX(Hubs[otp]))) VAR lo=TOPN(1,tab,[pct],ASC,Hubs[AirportLabel],ASC) RETURN "Variables: flights (X); otp (Y, %); cancel (tamaño, %). Propósito: La dispersión compara escala y servicio; el área de burbuja aumenta con la tasa de cancelación. Interpretación: " & ("Menor OTP del resumen mostrado: " & CONCATENATEX(lo,Hubs[AirportLabel] & " (" & FORMAT([pct]/100,"0.00%") & ")") & ". Priorizar diagnóstico con volumen y cancelación. Resumen independiente sin fecha ni aerolínea; los filtros del cubo no se aplican.")
 		displayFolder: Interpretaciones
-		lineageTag: 0bea79ff-c23c-4253-afee-9b36ae6724d0
+		lineageTag: b9a4cf4e-6ed8-4aed-a4a4-c4887f2b0c85
 
 	measure 'Lectura tradeoff' =
 			VAR tab = FILTER(ADDCOLUMNS(VALUES(Aerolineas[AirlineLabel]), "pct", [OTP], "n", [Operaciones]), [n]>=[Soporte minimo])
@@ -187,7 +187,7 @@ table Vuelos
 			VAR lo = TOPN(1, tab, [pct], ASC, Aerolineas[AirlineLabel], ASC)
 			RETURN "Variables: Airline; ops (X); OTP (Y, %); cancelRate (tamaño, %). Propósito: Permite localizar operadores con gran exposición y menor puntualidad. Una asociación no demuestra causalidad. Interpretación: " & (IF(COUNTROWS(tab)=0,"Sin categorías con el soporte seleccionado.", "Mayor OTP: " & CONCATENATEX(hi, Aerolineas[AirlineLabel] & " (" & FORMAT([pct], "0.00%") & ", N=" & FORMAT([n],"#,0") & ")") & "; menor: " & CONCATENATEX(lo, Aerolineas[AirlineLabel] & " (" & FORMAT([pct], "0.00%") & ")") & ". Priorizar diagnóstico. La comparación no controla la mezcla de rutas y períodos ni demuestra causalidad."))
 		displayFolder: Interpretaciones
-		lineageTag: db1c4d01-1ae6-42d3-b1a5-32288c181d24
+		lineageTag: a45059d4-27fd-44e3-9c05-998724d14e73
 
 	measure 'Lectura ranking' =
 			VAR tab = FILTER(ADDCOLUMNS(VALUES(Aerolineas[AirlineLabel]), "pct", [OTP], "n", [Operaciones]), [n]>=[Soporte minimo])
@@ -195,162 +195,162 @@ table Vuelos
 			VAR lo = TOPN(1, tab, [pct], ASC, Aerolineas[AirlineLabel], ASC)
 			RETURN "Variables: Airline (categoría); Σontime / Σops (%). Propósito: Las barras ordenadas facilitan comparaciones. Son tasas ponderadas por operaciones; no promedios simples de porcentajes. Interpretación: " & (IF(COUNTROWS(tab)=0,"Sin categorías con el soporte seleccionado.", "Mayor OTP: " & CONCATENATEX(hi, Aerolineas[AirlineLabel] & " (" & FORMAT([pct], "0.00%") & ", N=" & FORMAT([n],"#,0") & ")") & "; menor: " & CONCATENATEX(lo, Aerolineas[AirlineLabel] & " (" & FORMAT([pct], "0.00%") & ")") & ". Priorizar diagnóstico. La comparación no controla la mezcla de rutas y períodos ni demuestra causalidad."))
 		displayFolder: Interpretaciones
-		lineageTag: c335d0e2-6449-4fb9-a6e1-4d8c50fde430
+		lineageTag: 52ed92ad-6660-4522-8d1f-88ad970913d6
 
 	measure 'Lectura causes' = VAR tab = ADDCOLUMNS(ALL(Causas), "mins", [Minutos causa]) VAR topcause=TOPN(1,tab,[mins],DESC,Causas[Causa],ASC) RETURN "Variables: carrierDelay, weatherDelay, nasDelay, secDelay, lateAirDelay (minutos). Propósito: Comparar minutos identifica focos de intervención en el subconjunto consistente. Se excluyen filas cuya suma de causas no coincide con sumDelayMin (tolerancia 1 minuto). Interpretación: " & (IF([Total minutos conciliados]=0,"Sin minutos por causa conciliados.","Causa dominante: " & CONCATENATEX(topcause,Causas[Causa] & " (" & FORMAT(DIVIDE([mins],[Total minutos conciliados]),"0.00%") & ")") & ". Priorizar su diagnóstico. Filas excluidas: " & FORMAT([Filas causas excluidas],"#,0") & "; cobertura de operaciones: " & FORMAT([Cobertura causas],"0.00%") & ". Hallazgo del subconjunto conciliado."))
 		displayFolder: Interpretaciones
-		lineageTag: 0542fae8-048f-485b-bc90-b4350ff2b409
+		lineageTag: cac6da22-262c-48f1-8ddc-e502db1610e0
 
 	column Year
 		dataType: int64
 		isHidden
-		lineageTag: 5c707d69-e468-4e64-845d-91325366c6a5
+		lineageTag: 9cea5d7c-eaf8-4500-adb1-acd7e49f6cd2
 		summarizeBy: none
 		sourceColumn: Year
 
 	column Month
 		dataType: int64
 		isHidden
-		lineageTag: 06732a29-0e08-4ee1-b276-6651f2e446d9
+		lineageTag: e9d9ae98-7a66-4920-ac9c-ce9de0e14d39
 		summarizeBy: none
 		sourceColumn: Month
 
 	column Airline
 		dataType: string
 		isHidden
-		lineageTag: 8f432215-d1a0-4479-b685-af45b62b6717
+		lineageTag: c5198b7f-7883-4320-afa0-a658d98b17f1
 		summarizeBy: none
 		sourceColumn: Airline
 
 	column OriginState
 		dataType: string
 		isHidden
-		lineageTag: bd36e228-2021-46b2-9f0e-72483aee9a87
+		lineageTag: 3dd94c4d-2ba7-4d9b-9025-1e3aea3ccdc7
 		summarizeBy: none
 		sourceColumn: OriginState
 
 	column Haul
 		dataType: string
 		isHidden
-		lineageTag: 51884d46-42f0-4cad-862d-5d0d0b3ffcd0
+		lineageTag: 2ddd914e-8b7a-4b31-9924-e4eb12446a8b
 		summarizeBy: none
 		sourceColumn: Haul
 
 	column ops
 		dataType: int64
-		lineageTag: 47a96850-69f3-481a-999f-11b0158d50b3
+		lineageTag: c157fd1a-0b26-47e4-9cd7-c41cc0cb44bc
 		summarizeBy: sum
 		sourceColumn: ops
 
 	column ontime
 		dataType: double
-		lineageTag: 7c290b5c-0bf7-4c52-a78d-6f7007894cab
+		lineageTag: da58de87-7bba-480a-9605-f656837a404b
 		summarizeBy: sum
 		sourceColumn: ontime
 
 	column delayed15
 		dataType: double
-		lineageTag: 0a0f39dd-3379-4a6e-9dac-e3f926341843
+		lineageTag: d2bbb4b4-2076-45ea-a9d9-06101585e3e0
 		summarizeBy: sum
 		sourceColumn: delayed15
 
 	column delayed60
 		dataType: double
-		lineageTag: 9df7befd-ded0-4be2-a97d-41085d8093b2
+		lineageTag: 3111f34f-179a-4164-9de8-4b08ec5094f8
 		summarizeBy: sum
 		sourceColumn: delayed60
 
 	column cancel
 		dataType: double
-		lineageTag: 57caf726-b601-4c5d-bae4-b0a408aed340
+		lineageTag: ab105fe8-65e0-4e72-aae3-baa37db4b591
 		summarizeBy: sum
 		sourceColumn: cancel
 
 	column divert
 		dataType: double
-		lineageTag: 02800f3e-21b2-4510-9515-0411f0171402
+		lineageTag: 35ac3423-2e07-40bf-8184-5c114568c8d0
 		summarizeBy: sum
 		sourceColumn: divert
 
 	column sumDelayMin
 		dataType: double
-		lineageTag: c87a02c1-594a-46bf-977a-47c6f69b0099
+		lineageTag: d37ae0bb-e9b7-4870-8678-6bbedba4ba43
 		summarizeBy: sum
 		sourceColumn: sumDelayMin
 
 	column carrierDelay
 		dataType: double
-		lineageTag: 9c3832d0-fba4-4a2f-b304-d21bef9bbecc
+		lineageTag: 718dd663-c949-4134-8dd4-176028b0b134
 		summarizeBy: sum
 		sourceColumn: carrierDelay
 
 	column weatherDelay
 		dataType: double
-		lineageTag: d50ee0d8-f188-471d-be1c-942a566f01e4
+		lineageTag: 44986ec5-cfb9-447a-bedd-b9591ce71d6f
 		summarizeBy: sum
 		sourceColumn: weatherDelay
 
 	column nasDelay
 		dataType: double
-		lineageTag: 88706cf5-3fd9-436f-8afd-4df0818265a3
+		lineageTag: 5105aa8a-0a01-48f4-af2a-98e97328a62a
 		summarizeBy: sum
 		sourceColumn: nasDelay
 
 	column secDelay
 		dataType: double
-		lineageTag: 0c823a19-32ae-4d89-abef-631bfa3bdb5f
+		lineageTag: 3e899cc5-ded6-48c3-bc77-4515a2b867c8
 		summarizeBy: sum
 		sourceColumn: secDelay
 
 	column lateAirDelay
 		dataType: double
-		lineageTag: 04174c6e-9328-40ab-ae4d-40729c19b7a8
+		lineageTag: 86849f0f-5b57-413b-ad7e-2c3b3bdb41e6
 		summarizeBy: sum
 		sourceColumn: lateAirDelay
 
 	column AirlineName
 		dataType: string
-		lineageTag: 0e4ecb7a-7712-4389-8c77-b5b88deb2542
+		lineageTag: cfe85049-381e-438e-a00e-9cb9f9e367fa
 		summarizeBy: none
 		sourceColumn: AirlineName
 
 	column AirlineLabel
 		dataType: string
-		lineageTag: 58d201d1-31de-4042-90da-8b384b7e5994
+		lineageTag: f093b58d-3f19-454e-8c3e-f9868e3098cd
 		summarizeBy: none
 		sourceColumn: AirlineLabel
 
 	column Unclassified
 		dataType: double
-		lineageTag: 9728a212-ae02-4d2c-9e18-fe8bddea4e08
+		lineageTag: eb3320e3-b50a-4969-8a7d-7d460e5fcc1c
 		summarizeBy: sum
 		sourceColumn: Unclassified
 
 	column CauseGap
 		dataType: double
 		isHidden
-		lineageTag: 7e742269-65d2-449e-a7f6-2a8457d71e3f
+		lineageTag: f74bef5e-852d-4645-aa26-f046ed7f615b
 		summarizeBy: sum
 		sourceColumn: CauseGap
 
 	column CauseValid
 		dataType: boolean
 		isHidden
-		lineageTag: a0473a64-be8d-4d65-8256-716222d38b18
+		lineageTag: ee34e62b-728c-40cc-8ee0-df360e02d484
 		summarizeBy: none
 		sourceColumn: CauseValid
 
 	column Period
 		dataType: string
 		isHidden
-		lineageTag: 671c3cf7-d791-41bf-837b-71e0e0fa8fc0
+		lineageTag: d40d4d18-78c4-4ba7-9386-3253c8288083
 		summarizeBy: none
 		sourceColumn: Period
 
 	column RowId
 		dataType: int64
 		isHidden
-		lineageTag: acf2ac7a-ae0d-4bfb-97fa-0426f4d078e8
+		lineageTag: 89f4a716-40a7-449c-98f4-decab1ef9db7
 		summarizeBy: none
 		sourceColumn: RowId
 

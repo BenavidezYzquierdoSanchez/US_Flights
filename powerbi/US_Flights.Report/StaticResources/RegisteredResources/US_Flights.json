@@ -1,33 +1,37 @@
 {
-  "name": "US_Flights",
+  "name": "AeroPulse Studio | Executive 2026",
   "dataColors": [
-    "#2ee6a6",
-    "#2ec4b6",
-    "#f5b942",
-    "#f07178",
-    "#5b8def",
-    "#b07cff",
-    "#94a3b8"
+    "#12304A",
+    "#087E8B",
+    "#2667A8",
+    "#D96059",
+    "#C68C30",
+    "#6555A4",
+    "#2B8269",
+    "#385B84"
   ],
-  "background": "#070d18",
-  "foreground": "#e8eef8",
-  "tableAccent": "#2ee6a6",
+  "background": "#F2F5FA",
+  "foreground": "#16324B",
+  "tableAccent": "#087E8B",
+  "good": "#3BBA92",
+  "neutral": "#EBA74B",
+  "bad": "#EF6A68",
   "textClasses": {
     "label": {
-      "color": "#e8eef8",
-      "fontFace": "Segoe UI"
+      "fontFace": "Aptos",
+      "color": "#697E8B"
     },
     "callout": {
-      "color": "#e8eef8",
-      "fontFace": "Segoe UI"
+      "fontFace": "Aptos Display",
+      "color": "#102B3F"
     },
     "title": {
-      "color": "#e8eef8",
-      "fontFace": "Segoe UI"
+      "fontFace": "Aptos Display",
+      "color": "#163E52"
     },
     "header": {
-      "color": "#e8eef8",
-      "fontFace": "Segoe UI"
+      "fontFace": "Aptos Display",
+      "color": "#163E52"
     }
   },
   "visualStyles": {
@@ -38,7 +42,7 @@
             "show": true,
             "color": {
               "solid": {
-                "color": "#10192b"
+                "color": "#FFFFFF"
               }
             },
             "transparency": 0
@@ -46,29 +50,12 @@
         ],
         "title": [
           {
-            "color": {
+            "show": true,
+            "fontSize": 13,
+            "fontFamily": "Aptos Display",
+            "fontColor": {
               "solid": {
-                "color": "#e8eef8"
-              }
-            },
-            "fontSize": 14,
-            "fontFamily": "Segoe UI"
-          }
-        ],
-        "categoryAxis": [
-          {
-            "labelColor": {
-              "solid": {
-                "color": "#e8eef8"
-              }
-            }
-          }
-        ],
-        "valueAxis": [
-          {
-            "labelColor": {
-              "solid": {
-                "color": "#e8eef8"
+                "color": "#163E52"
               }
             }
           }
@@ -77,7 +64,7 @@
           {
             "labelColor": {
               "solid": {
-                "color": "#e8eef8"
+                "color": "#697E8B"
               }
             }
           }

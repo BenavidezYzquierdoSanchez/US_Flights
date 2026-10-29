@@ -1,0 +1,149 @@
+-- Tabla Vuelos
+Soporte minimo = SELECTEDVALUE(ConfiguracionSoporte[Operaciones], 30)
+
+-- Tabla Vuelos
+Meta OTP = DIVIDE(SELECTEDVALUE(ConfiguracionOTP[Porcentaje], 80), 100)
+
+-- Tabla Vuelos
+Estado OTP = IF(ISBLANK([OTP]), "Sin datos", IF([OTP] >= [Meta OTP], "Cumple", "Bajo") & " ref. " & FORMAT([Meta OTP], "0%"))
+
+-- Tabla Vuelos
+Operaciones = SUM(Vuelos[ops])
+
+-- Tabla Vuelos
+Puntuales = SUM(Vuelos[ontime])
+
+-- Tabla Vuelos
+Demorados 15 = SUM(Vuelos[delayed15])
+
+-- Tabla Vuelos
+Demorados 60 = SUM(Vuelos[delayed60])
+
+-- Tabla Vuelos
+OTP = DIVIDE([Puntuales], [Operaciones])
+
+-- Tabla Vuelos
+Tasa demora 15 = DIVIDE([Demorados 15], [Operaciones])
+
+-- Tabla Vuelos
+Tasa demora 60 = DIVIDE([Demorados 60], [Operaciones])
+
+-- Tabla Vuelos
+Tasa cancelacion = DIVIDE(SUM(Vuelos[cancel]), [Operaciones])
+
+-- Tabla Vuelos
+Tasa desvios = DIVIDE(SUM(Vuelos[divert]), [Operaciones])
+
+-- Tabla Vuelos
+Demora media = DIVIDE(SUM(Vuelos[sumDelayMin]), [Demorados 15])
+
+-- Tabla Vuelos
+Sin clasificar = SUM(Vuelos[Unclassified])
+
+-- Tabla Vuelos
+Filas causas excluidas = COUNTROWS(FILTER(Vuelos, NOT(Vuelos[CauseValid])))
+
+-- Tabla Vuelos
+Cobertura causas = DIVIDE(CALCULATE([Operaciones], Vuelos[CauseValid] = TRUE()), [Operaciones])
+
+-- Tabla Vuelos
+OTP soporte = IF([Operaciones] >= [Soporte minimo], [OTP])
+
+-- Tabla Vuelos
+Operaciones soporte = IF([Operaciones] >= [Soporte minimo], [Operaciones])
+
+-- Tabla Vuelos
+Cancelacion soporte = IF([Operaciones] >= [Soporte minimo], [Tasa cancelacion])
+
+-- Tabla Vuelos
+Referencia OTP = IF([Operaciones] > 0, [Meta OTP])
+
+-- Tabla Vuelos
+Wilson inferior = VAR n = [Operaciones] RETURN IF(n >= [Soporte minimo] && n > 0, VAR p = [OTP] VAR z = 1.96 VAR den = 1 + z*z/n VAR c = (p + z*z/(2*n))/den VAR h = z*SQRT(p*(1-p)/n + z*z/(4*n*n))/den RETURN c-h)
+
+-- Tabla Vuelos
+Wilson superior = VAR n = [Operaciones] RETURN IF(n >= [Soporte minimo] && n > 0, VAR p = [OTP] VAR z = 1.96 VAR den = 1 + z*z/n VAR c = (p + z*z/(2*n))/den VAR h = z*SQRT(p*(1-p)/n + z*z/(4*n*n))/den RETURN c+h)
+
+-- Tabla Vuelos
+Operaciones por estado = SWITCH(SELECTEDVALUE(Estados[Estado]), "Puntuales", [Puntuales], "Demora ≥15", [Demorados 15], "Cancelados", SUM(Vuelos[cancel]), "Desviados", SUM(Vuelos[divert]), "Sin clasificar", [Sin clasificar])
+
+-- Tabla Vuelos
+Minutos causa = VAR campo = SELECTEDVALUE(Causas[Campo]) RETURN SWITCH(campo, "carrierDelay", CALCULATE(SUM(Vuelos[carrierDelay]), Vuelos[CauseValid]=TRUE()), "weatherDelay", CALCULATE(SUM(Vuelos[weatherDelay]), Vuelos[CauseValid]=TRUE()), "nasDelay", CALCULATE(SUM(Vuelos[nasDelay]), Vuelos[CauseValid]=TRUE()), "secDelay", CALCULATE(SUM(Vuelos[secDelay]), Vuelos[CauseValid]=TRUE()), "lateAirDelay", CALCULATE(SUM(Vuelos[lateAirDelay]), Vuelos[CauseValid]=TRUE()))
+
+-- Tabla Vuelos
+Total minutos conciliados = SUMX(ALL(Causas), [Minutos causa])
+
+-- Tabla Vuelos
+Lectura annual = VAR tab = FILTER(ADDCOLUMNS(VALUES(Calendario[Year]), "pct", [OTP]), NOT ISBLANK([pct]))
+VAR hi = TOPN(1, tab, [pct], DESC, Calendario[Year], ASC)
+VAR lo = TOPN(1, tab, [pct], ASC, Calendario[Year], ASC)
+RETURN "Variables: Year; ops (barras); ontime / ops (%) (línea). Propósito: Barras y línea comparan volumen y nivel de servicio en ejes distintos. Comparar períodos equivalentes: 2026 termina en mayo. Interpretación: " & (IF([Operaciones]=0, "Sin datos para el filtro.", "Mayor OTP: " & CONCATENATEX(hi, Calendario[Year] & " (" & FORMAT([pct], "0.00%") & ")") & "; menor: " & CONCATENATEX(lo, Calendario[Year] & " (" & FORMAT([pct], "0.00%") & ")") & ". Revisar períodos bajos. Comparar coberturas equivalentes: 2026 termina en mayo."))
+
+-- Tabla Vuelos
+Lectura mix = RETURN "Variables: ontime, delayed15, cancel, divert, Unclassified (conteos). Propósito: La dona representa proporciones de categorías excluyentes y conserva el residuo sin clasificar. delayed60 es subconjunto de delayed15. Interpretación: " & (IF([Operaciones]=0, "Sin datos para el filtro.", "Puntualidad: " & FORMAT([OTP], "0.00%") & "; operaciones sin categoría: " & FORMAT([Sin clasificar], "#,0") & ". Conservar el residuo y revisar incidencias; demora >=60 es parte de >=15."))
+
+-- Tabla Vuelos
+Lectura haul = VAR tab = FILTER(ADDCOLUMNS(VALUES(Radios[Haul]), "pct", [OTP], "n", [Operaciones]), [n]>=[Soporte minimo])
+VAR hi = TOPN(1, tab, [pct], DESC, Radios[Haul], ASC)
+VAR lo = TOPN(1, tab, [pct], ASC, Radios[Haul], ASC)
+RETURN "Variables: Haul (categoría); ontime / ops (%). Propósito: Comparar radios orienta la asignación de recursos; los límites de distancia del radio no están documentados en el JSON. Interpretación: " & (IF(COUNTROWS(tab)=0,"Sin categorías con el soporte seleccionado.", "Mayor OTP: " & CONCATENATEX(hi, Radios[Haul] & " (" & FORMAT([pct], "0.00%") & ", N=" & FORMAT([n],"#,0") & ")") & "; menor: " & CONCATENATEX(lo, Radios[Haul] & " (" & FORMAT([pct], "0.00%") & ")") & ". Priorizar diagnóstico. La comparación no controla la mezcla de rutas y períodos ni demuestra causalidad."))
+
+-- Tabla Vuelos
+Lectura timeline = VAR tab = FILTER(ADDCOLUMNS(VALUES(Calendario[Period]), "pct", [OTP]), NOT ISBLANK([pct]))
+VAR hi = TOPN(1, tab, [pct], DESC, Calendario[Period], ASC)
+VAR lo = TOPN(1, tab, [pct], ASC, Calendario[Period], ASC)
+RETURN "Variables: Year-Month; ontime / ops (%). Propósito: El orden cronológico distingue cambios en el tiempo. Los meses sin observación son huecos, nunca ceros. Interpretación: " & (IF([Operaciones]=0, "Sin datos para el filtro.", "Mayor OTP: " & CONCATENATEX(hi, Calendario[Period] & " (" & FORMAT([pct], "0.00%") & ")") & "; menor: " & CONCATENATEX(lo, Calendario[Period] & " (" & FORMAT([pct], "0.00%") & ")") & ". Revisar períodos bajos. Comparar coberturas equivalentes: 2026 termina en mayo."))
+
+-- Tabla Vuelos
+Lectura season = VAR tab = FILTER(ADDCOLUMNS(VALUES(Calendario[MonthName]), "pct", [OTP]), NOT ISBLANK([pct]))
+VAR hi = TOPN(1, tab, [pct], DESC, Calendario[MonthName], ASC)
+VAR lo = TOPN(1, tab, [pct], ASC, Calendario[MonthName], ASC)
+RETURN "Variables: Year, Month; ops; Σontime / Σops; cancel / ops (%). Propósito: Las curvas comparan los años por mes; con un año seleccionado se combina volumen, OTP y cancelación. La composición de aerolíneas y la cobertura pueden cambiar. Interpretación: " & (IF([Operaciones]=0, "Sin datos para el filtro.", "Mayor OTP: " & CONCATENATEX(hi, Calendario[MonthName] & " (" & FORMAT([pct], "0.00%") & ")") & "; menor: " & CONCATENATEX(lo, Calendario[MonthName] & " (" & FORMAT([pct], "0.00%") & ")") & ". Revisar períodos bajos. Comparar coberturas equivalentes: 2026 termina en mayo."))
+
+-- Tabla Vuelos
+Lectura uncertainty = VAR tab = FILTER(ADDCOLUMNS(VALUES(Aerolineas[AirlineLabel]), "pct", [OTP], "n", [Operaciones]), [n]>=[Soporte minimo])
+VAR hi = TOPN(1, tab, [pct], DESC, Aerolineas[AirlineLabel], ASC)
+VAR lo = TOPN(1, tab, [pct], ASC, Aerolineas[AirlineLabel], ASC)
+RETURN "Variables: Airline; ontime; ops; límite inferior y superior (%). Propósito: Las barras de error expresan precisión bajo un modelo binomial. No cuantifican sesgo ni dependencia entre vuelos. Interpretación: " & (IF(COUNTROWS(tab)=0,"Sin categorías con el soporte seleccionado.", "Mayor OTP: " & CONCATENATEX(hi, Aerolineas[AirlineLabel] & " (" & FORMAT([pct], "0.00%") & ", N=" & FORMAT([n],"#,0") & ")") & "; menor: " & CONCATENATEX(lo, Aerolineas[AirlineLabel] & " (" & FORMAT([pct], "0.00%") & ")") & ". Priorizar diagnóstico. Wilson 95% supone independencia binomial; no cuantifica sesgo ni dependencia."))
+
+-- Tabla Vuelos
+Lectura hourly = VAR tab=ADDCOLUMNS(VALUES(Horarios[hour_block]),"mins",CALCULATE(MAX(Horarios[avg_delay]))) VAR hi=TOPN(1,tab,[mins],DESC,Horarios[hour_block],ASC) VAR lo=TOPN(1,tab,[mins],ASC,Horarios[hour_block],ASC) RETURN "Variables: hour_block (hora); avg_delay (minutos). Propósito: La línea compara el resumen horario suministrado. No hay conteos ni claves para ponderarlo o filtrarlo con el cubo. Interpretación: " & ("Mínimo horario: " & CONCATENATEX(lo,FORMAT(Horarios[hour_block],"00") & ":00, " & FORMAT([mins],"0.0") & " min") & "; máximo: " & CONCATENATEX(hi,FORMAT(Horarios[hour_block],"00") & ":00, " & FORMAT([mins],"0.0") & " min") & ". Resumen global: no tiene denominador ni período y no demuestra efecto cascada.")
+
+-- Tabla Vuelos
+Lectura map = VAR tab=ADDCOLUMNS(VALUES(Hubs[AirportLabel]),"pct",CALCULATE(MAX(Hubs[otp]))) VAR lo=TOPN(1,tab,[pct],ASC,Hubs[AirportLabel],ASC) RETURN "Variables: Latitud, longitud (coordenadas); otp (%); flights (conteo). Propósito: La ubicación permite explorar concentraciones espaciales. Son aeropuertos seleccionados; no se deriva un mapa estatal. Interpretación: " & ("Menor OTP del resumen mostrado: " & CONCATENATEX(lo,Hubs[AirportLabel] & " (" & FORMAT([pct]/100,"0.00%") & ")") & ". Priorizar diagnóstico con volumen y cancelación. Resumen independiente sin fecha ni aerolínea; los filtros del cubo no se aplican.")
+
+-- Tabla Vuelos
+Lectura hubs = VAR tab=ADDCOLUMNS(VALUES(Hubs[AirportLabel]),"pct",CALCULATE(MAX(Hubs[otp]))) VAR lo=TOPN(1,tab,[pct],ASC,Hubs[AirportLabel],ASC) RETURN "Variables: flights (X); otp (Y, %); cancel (tamaño, %). Propósito: La dispersión compara escala y servicio; el área de burbuja aumenta con la tasa de cancelación. Interpretación: " & ("Menor OTP del resumen mostrado: " & CONCATENATEX(lo,Hubs[AirportLabel] & " (" & FORMAT([pct]/100,"0.00%") & ")") & ". Priorizar diagnóstico con volumen y cancelación. Resumen independiente sin fecha ni aerolínea; los filtros del cubo no se aplican.")
+
+-- Tabla Vuelos
+Lectura tradeoff = VAR tab = FILTER(ADDCOLUMNS(VALUES(Aerolineas[AirlineLabel]), "pct", [OTP], "n", [Operaciones]), [n]>=[Soporte minimo])
+VAR hi = TOPN(1, tab, [pct], DESC, Aerolineas[AirlineLabel], ASC)
+VAR lo = TOPN(1, tab, [pct], ASC, Aerolineas[AirlineLabel], ASC)
+RETURN "Variables: Airline; ops (X); OTP (Y, %); cancelRate (tamaño, %). Propósito: Permite localizar operadores con gran exposición y menor puntualidad. Una asociación no demuestra causalidad. Interpretación: " & (IF(COUNTROWS(tab)=0,"Sin categorías con el soporte seleccionado.", "Mayor OTP: " & CONCATENATEX(hi, Aerolineas[AirlineLabel] & " (" & FORMAT([pct], "0.00%") & ", N=" & FORMAT([n],"#,0") & ")") & "; menor: " & CONCATENATEX(lo, Aerolineas[AirlineLabel] & " (" & FORMAT([pct], "0.00%") & ")") & ". Priorizar diagnóstico. La comparación no controla la mezcla de rutas y períodos ni demuestra causalidad."))
+
+-- Tabla Vuelos
+Lectura ranking = VAR tab = FILTER(ADDCOLUMNS(VALUES(Aerolineas[AirlineLabel]), "pct", [OTP], "n", [Operaciones]), [n]>=[Soporte minimo])
+VAR hi = TOPN(1, tab, [pct], DESC, Aerolineas[AirlineLabel], ASC)
+VAR lo = TOPN(1, tab, [pct], ASC, Aerolineas[AirlineLabel], ASC)
+RETURN "Variables: Airline (categoría); Σontime / Σops (%). Propósito: Las barras ordenadas facilitan comparaciones. Son tasas ponderadas por operaciones; no promedios simples de porcentajes. Interpretación: " & (IF(COUNTROWS(tab)=0,"Sin categorías con el soporte seleccionado.", "Mayor OTP: " & CONCATENATEX(hi, Aerolineas[AirlineLabel] & " (" & FORMAT([pct], "0.00%") & ", N=" & FORMAT([n],"#,0") & ")") & "; menor: " & CONCATENATEX(lo, Aerolineas[AirlineLabel] & " (" & FORMAT([pct], "0.00%") & ")") & ". Priorizar diagnóstico. La comparación no controla la mezcla de rutas y períodos ni demuestra causalidad."))
+
+-- Tabla Vuelos
+Lectura causes = VAR tab = ADDCOLUMNS(ALL(Causas), "mins", [Minutos causa]) VAR topcause=TOPN(1,tab,[mins],DESC,Causas[Causa],ASC) RETURN "Variables: carrierDelay, weatherDelay, nasDelay, secDelay, lateAirDelay (minutos). Propósito: Comparar minutos identifica focos de intervención en el subconjunto consistente. Se excluyen filas cuya suma de causas no coincide con sumDelayMin (tolerancia 1 minuto). Interpretación: " & (IF([Total minutos conciliados]=0,"Sin minutos por causa conciliados.","Causa dominante: " & CONCATENATEX(topcause,Causas[Causa] & " (" & FORMAT(DIVIDE([mins],[Total minutos conciliados]),"0.00%") & ")") & ". Priorizar su diagnóstico. Filas excluidas: " & FORMAT([Filas causas excluidas],"#,0") & "; cobertura de operaciones: " & FORMAT([Cobertura causas],"0.00%") & ". Hallazgo del subconjunto conciliado."))
+
+-- Tabla Hubs
+Vuelos hub = SUM(Hubs[flights])
+
+-- Tabla Hubs
+OTP hub = IF(HASONEVALUE(Hubs[code]), DIVIDE(MAX(Hubs[otp]),100))
+
+-- Tabla Hubs
+Cancelacion hub = IF(HASONEVALUE(Hubs[code]), DIVIDE(MAX(Hubs[cancel]),100))
+
+-- Tabla Hubs
+Latitud hub = MAX(Hubs[Latitude])
+
+-- Tabla Hubs
+Longitud hub = MAX(Hubs[Longitude])
+
+-- Tabla Horarios
+Demora horaria = IF(HASONEVALUE(Horarios[hour_block]), MAX(Horarios[avg_delay]))

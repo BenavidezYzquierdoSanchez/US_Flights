@@ -1,83 +1,83 @@
 table Hubs
-	lineageTag: 4cf6bf37-d9ef-4d0e-b5ea-f7a8f8f134a0
+	lineageTag: e25fbe88-9f39-4039-8d92-807bf9c34d7a
 
 	measure 'Vuelos hub' = SUM(Hubs[flights])
 		formatString: #,0
 		displayFolder: KPI
-		lineageTag: 2f2a7c17-a547-4ed0-9e2e-22f3d40f7982
+		lineageTag: 7bf16390-1f62-43ae-94bc-d7070de7112d
 
 	measure 'OTP hub' = IF(HASONEVALUE(Hubs[code]), DIVIDE(MAX(Hubs[otp]),100))
 		formatString: 0.00%
 		displayFolder: KPI
-		lineageTag: 915293d7-d639-47bf-8ec8-2497010714e4
+		lineageTag: d3924e48-fda5-4387-a50d-6e1016c239b3
 
 	measure 'Cancelacion hub' = IF(HASONEVALUE(Hubs[code]), DIVIDE(MAX(Hubs[cancel]),100))
 		formatString: 0.00%
 		displayFolder: KPI
-		lineageTag: a803836c-91cb-4938-bce9-c12e941727fb
+		lineageTag: 70be27a4-6e04-4e7a-9f09-1441bcaa97c4
 
 	measure 'Latitud hub' = MAX(Hubs[Latitude])
 		formatString: 0.0000
 		displayFolder: KPI
-		lineageTag: cd24093c-faa2-4e71-8723-663ccded4592
+		lineageTag: 5851c431-5269-409f-8b51-9a01662d5aaf
 
 	measure 'Longitud hub' = MAX(Hubs[Longitude])
 		formatString: 0.0000
 		displayFolder: KPI
-		lineageTag: 04ad7e9a-f54a-43f5-bf40-3d2a648692ed
+		lineageTag: b4646f9e-9188-4834-8c63-f4664ec7a66b
 
 	column code
 		dataType: string
-		lineageTag: fd3cc42d-8db2-414a-9ed3-55d0362c3f34
+		lineageTag: f84503ac-4fce-40cc-852e-f29fc6e5408d
 		summarizeBy: none
 		sourceColumn: code
 
 	column state
 		dataType: string
-		lineageTag: f749938d-51f5-443f-ad6a-cca257bfa7c6
+		lineageTag: 7c8382a0-1d71-48d4-8e45-e60337db030c
 		summarizeBy: none
 		sourceColumn: state
 
 	column flights
 		dataType: int64
-		lineageTag: 639ac06b-0382-4270-b9f7-0faf7db57c8d
+		lineageTag: 78988b70-222d-496b-9a4c-538c10f1d040
 		summarizeBy: sum
 		sourceColumn: flights
 
 	column otp
 		dataType: double
-		lineageTag: 65a8bbf7-3b67-4ed7-8222-2a0f30fdf8ba
+		lineageTag: d049aa24-d9e5-40e0-8387-10ff055ab0d7
 		summarizeBy: sum
 		sourceColumn: otp
 
 	column cancel
 		dataType: double
-		lineageTag: 233a77aa-0d9e-4be5-b8cf-0eb01ae381d5
+		lineageTag: fd3ed5a3-0fda-43d9-83d8-29f4705f1474
 		summarizeBy: sum
 		sourceColumn: cancel
 
 	column AirportName
 		dataType: string
-		lineageTag: 5e15341f-9f05-470c-a998-c8deffbbc58d
+		lineageTag: 301e8f3e-607d-4fc6-8089-854dfae0e1c9
 		summarizeBy: none
 		sourceColumn: AirportName
 
 	column AirportLabel
 		dataType: string
-		lineageTag: e96b8f2f-25b9-4791-adf2-981d5b230ac6
+		lineageTag: 0f4877d5-3e3a-4c48-8b29-bb1a0cb7a570
 		summarizeBy: none
 		sourceColumn: AirportLabel
 
 	column Latitude
 		dataType: double
-		lineageTag: c5b7c4f5-8841-49cc-b6d1-8554b11e2bf2
+		lineageTag: 3491f1d7-9922-4161-a26a-a7e249ebb334
 		dataCategory: Latitude
 		summarizeBy: none
 		sourceColumn: Latitude
 
 	column Longitude
 		dataType: double
-		lineageTag: 3dbf2bef-76e6-48a9-be23-df44b903ce01
+		lineageTag: 184cd34f-4d29-4ea1-9b2c-376c3d172f62
 		dataCategory: Longitude
 		summarizeBy: none
 		sourceColumn: Longitude

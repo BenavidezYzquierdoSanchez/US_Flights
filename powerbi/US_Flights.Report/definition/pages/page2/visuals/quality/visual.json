@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "quality",
   "position": {
-    "x": 20,
-    "y": 65,
+    "x": 40,
+    "y": 265,
     "z": 44,
-    "width": 1240,
-    "height": 45,
+    "width": 1360,
+    "height": 43,
     "tabOrder": 85
   },
   "visual": {
@@ -27,7 +27,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#10192b'"
+                      "Value": "'#EDF6FF'"
                     }
                   }
                 }
@@ -55,8 +55,8 @@
                     "value": "139 filas con causas no conciliadas; 7,959 operaciones sin categoría. Referencia OTP interna ajustable. Hubs y horarios independientes.",
                     "textStyle": {
                       "fontSize": "11pt",
-                      "fontFamily": "Segoe UI",
-                      "color": "#e8eef8"
+                      "fontFamily": "Aptos",
+                      "color": "#163E52"
                     }
                   }
                 ]

@@ -1,9 +1,9 @@
 table ConfiguracionOTP
-	lineageTag: 472a6b83-341d-4d16-b47d-56accbe4f677
+	lineageTag: f1d6c657-3be4-4438-b7f6-062238d83fb1
 
 	column Porcentaje
 		dataType: int64
-		lineageTag: d3184925-53a6-41b9-b83b-54b445764c6c
+		lineageTag: 7646e723-bd85-406c-ba10-798882bf3e76
 		summarizeBy: none
 		sourceColumn: Porcentaje
 

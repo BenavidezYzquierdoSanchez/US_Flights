@@ -1,21 +1,21 @@
 table Aerolineas
-	lineageTag: a7451593-9194-4ef4-b050-bbd9792b05dd
+	lineageTag: c494d35d-e5c5-41fc-96d0-9f0a5fa1b3e3
 
 	column Airline
 		dataType: string
-		lineageTag: e7322152-438d-42c9-9920-28b33abb711b
+		lineageTag: 6fedd101-5e92-43e1-aee0-0759d77924c8
 		summarizeBy: none
 		sourceColumn: Airline
 
 	column AirlineName
 		dataType: string
-		lineageTag: bef6d5bb-5a29-4e80-a5e1-975e26f03797
+		lineageTag: 2fc0fe8a-44cb-43b0-b660-90cf2b6c09e8
 		summarizeBy: none
 		sourceColumn: AirlineName
 
 	column AirlineLabel
 		dataType: string
-		lineageTag: 1b962763-7107-4604-8c21-692966730b38
+		lineageTag: 4092b8e0-2ee9-4eca-b006-207f998f15b2
 		summarizeBy: none
 		sourceColumn: AirlineLabel
 

@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
     "type": "SemanticModel",
-    "displayName": "US_Flights"
+    "displayName": "AeroPulse"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "bfcd611c-43fd-4cc7-8f85-97f3519a39f4"
+    "logicalId": "cdc6df53-cf12-4678-a5aa-81a173c96f9e"
   }
 }

@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "method_card_8",
   "position": {
-    "x": 20,
-    "y": 1540,
+    "x": 960,
+    "y": 965,
     "z": 14,
-    "width": 610,
+    "width": 440,
     "height": 330,
     "tabOrder": 1560
   },
@@ -27,7 +27,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#10192b'"
+                      "Value": "'#FFFFFF'"
                     }
                   }
                 }
@@ -55,8 +55,8 @@
                     "value": "Ubicación y rendimiento",
                     "textStyle": {
                       "fontSize": "12pt",
-                      "fontFamily": "Segoe UI",
-                      "color": "#2ec4b6"
+                      "fontFamily": "Aptos",
+                      "color": "#243750"
                     }
                   }
                 ]
@@ -67,8 +67,8 @@
                     "value": "",
                     "textStyle": {
                       "fontSize": "12pt",
-                      "fontFamily": "Segoe UI",
-                      "color": "#e8eef8"
+                      "fontFamily": "Aptos",
+                      "color": "#243750"
                     }
                   }
                 ]
@@ -79,8 +79,8 @@
                     "value": "9. Cómo leer el mapa",
                     "textStyle": {
                       "fontSize": "15pt",
-                      "fontFamily": "Segoe UI",
-                      "color": "#e8eef8"
+                      "fontFamily": "Aptos",
+                      "color": "#243750"
                     }
                   }
                 ]
@@ -91,8 +91,8 @@
                     "value": "",
                     "textStyle": {
                       "fontSize": "12pt",
-                      "fontFamily": "Segoe UI",
-                      "color": "#e8eef8"
+                      "fontFamily": "Aptos",
+                      "color": "#243750"
                     }
                   }
                 ]
@@ -103,8 +103,8 @@
                     "value": "El mapa nativo usa Azure Maps con coordenadas de los 35 aeropuertos. Sus controles permiten estilos de calles y satélite cuando el servicio está disponible. El color/tamaño y los tooltips describen los hubs, sin fecha ni aerolínea. Sin conexión se conserva la tabla de aeropuertos; el mapa vectorial sin conexión permanece en HTML y Streamlit.",
                     "textStyle": {
                       "fontSize": "12pt",
-                      "fontFamily": "Segoe UI",
-                      "color": "#e8eef8"
+                      "fontFamily": "Aptos",
+                      "color": "#243750"
                     }
                   }
                 ]

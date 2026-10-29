@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "method_card_9",
   "position": {
-    "x": 650,
-    "y": 1540,
+    "x": 40,
+    "y": 1315,
     "z": 14,
-    "width": 610,
+    "width": 440,
     "height": 330,
     "tabOrder": 2190
   },
@@ -27,7 +27,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#10192b'"
+                      "Value": "'#FFFFFF'"
                     }
                   }
                 }
@@ -55,8 +55,8 @@
                     "value": "Límites del dataset",
                     "textStyle": {
                       "fontSize": "12pt",
-                      "fontFamily": "Segoe UI",
-                      "color": "#f07178"
+                      "fontFamily": "Aptos",
+                      "color": "#243750"
                     }
                   }
                 ]
@@ -67,8 +67,8 @@
                     "value": "",
                     "textStyle": {
                       "fontSize": "12pt",
-                      "fontFamily": "Segoe UI",
-                      "color": "#e8eef8"
+                      "fontFamily": "Aptos",
+                      "color": "#243750"
                     }
                   }
                 ]
@@ -79,8 +79,8 @@
                     "value": "10. Qué no se puede concluir",
                     "textStyle": {
                       "fontSize": "15pt",
-                      "fontFamily": "Segoe UI",
-                      "color": "#e8eef8"
+                      "fontFamily": "Aptos",
+                      "color": "#243750"
                     }
                   }
                 ]
@@ -91,8 +91,8 @@
                     "value": "",
                     "textStyle": {
                       "fontSize": "12pt",
-                      "fontFamily": "Segoe UI",
-                      "color": "#e8eef8"
+                      "fontFamily": "Aptos",
+                      "color": "#243750"
                     }
                   }
                 ]
@@ -103,8 +103,8 @@
                     "value": "OriginState solo contiene US. No hay detalle suficiente para un ciclo semanal ni para cruzar día, hora y radio. No se fabrican patrones ni se fijan reglas de conexiones de 45 minutos. Los límites de distancia de corto, medio y largo no están documentados.",
                     "textStyle": {
                       "fontSize": "12pt",
-                      "fontFamily": "Segoe UI",
-                      "color": "#e8eef8"
+                      "fontFamily": "Aptos",
+                      "color": "#243750"
                     }
                   }
                 ]

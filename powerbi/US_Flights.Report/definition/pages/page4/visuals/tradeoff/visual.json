@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "tradeoff",
   "position": {
-    "x": 20,
-    "y": 575,
+    "x": 37.679290894439951,
+    "y": 324.21434327155532,
     "z": 41,
-    "width": 1240,
-    "height": 320,
+    "height": 400,
+    "width": 830,
     "tabOrder": 595
   },
   "visual": {
@@ -28,6 +28,25 @@
               },
               "queryRef": "Aerolineas.AirlineLabel",
               "nativeQueryRef": "AirlineLabel",
+              "active": true
+            }
+          ]
+        },
+        "Size": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Vuelos"
+                    }
+                  },
+                  "Property": "Cancelacion soporte"
+                }
+              },
+              "queryRef": "Vuelos.Cancelacion soporte",
+              "nativeQueryRef": "Cancelacion soporte",
               "active": true
             }
           ]
@@ -69,25 +88,6 @@
               "active": true
             }
           ]
-        },
-        "Size": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Vuelos"
-                    }
-                  },
-                  "Property": "Cancelacion soporte"
-                }
-              },
-              "queryRef": "Vuelos.Cancelacion soporte",
-              "nativeQueryRef": "Cancelacion soporte",
-              "active": true
-            }
-          ]
         }
       }
     },
@@ -107,7 +107,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#10192b'"
+                      "Value": "'#FFFFFF'"
                     }
                   }
                 }
@@ -145,7 +145,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#e8eef8'"
+                      "Value": "'#163E52'"
                     }
                   }
                 }
@@ -154,7 +154,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "14D"
+                  "Value": "13D"
                 }
               }
             }

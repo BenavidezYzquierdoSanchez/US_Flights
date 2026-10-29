@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "method_card_6",
   "position": {
-    "x": 20,
-    "y": 1190,
+    "x": 40,
+    "y": 965,
     "z": 14,
-    "width": 610,
+    "width": 440,
     "height": 330,
     "tabOrder": 1210
   },
@@ -27,7 +27,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#10192b'"
+                      "Value": "'#FFFFFF'"
                     }
                   }
                 }
@@ -55,8 +55,8 @@
                     "value": "2026 es parcial",
                     "textStyle": {
                       "fontSize": "12pt",
-                      "fontFamily": "Segoe UI",
-                      "color": "#f5b942"
+                      "fontFamily": "Aptos",
+                      "color": "#243750"
                     }
                   }
                 ]
@@ -67,8 +67,8 @@
                     "value": "",
                     "textStyle": {
                       "fontSize": "12pt",
-                      "fontFamily": "Segoe UI",
-                      "color": "#e8eef8"
+                      "fontFamily": "Aptos",
+                      "color": "#243750"
                     }
                   }
                 ]
@@ -79,8 +79,8 @@
                     "value": "7. Cómo comparar los años",
                     "textStyle": {
                       "fontSize": "15pt",
-                      "fontFamily": "Segoe UI",
-                      "color": "#e8eef8"
+                      "fontFamily": "Aptos",
+                      "color": "#243750"
                     }
                   }
                 ]
@@ -91,8 +91,8 @@
                     "value": "",
                     "textStyle": {
                       "fontSize": "12pt",
-                      "fontFamily": "Segoe UI",
-                      "color": "#e8eef8"
+                      "fontFamily": "Aptos",
+                      "color": "#243750"
                     }
                   }
                 ]
@@ -103,8 +103,8 @@
                     "value": "2021–2025 incluyen 12 meses; 2026 llega hasta mayo. Para comparar 2025 y 2026, usar enero–mayo en ambos. Incluso con los mismos meses, la composición de aerolíneas y radios puede cambiar.",
                     "textStyle": {
                       "fontSize": "12pt",
-                      "fontFamily": "Segoe UI",
-                      "color": "#e8eef8"
+                      "fontFamily": "Aptos",
+                      "color": "#243750"
                     }
                   }
                 ]

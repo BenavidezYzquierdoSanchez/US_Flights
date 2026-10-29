@@ -1,16 +1,38 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "quality",
   "position": {
-    "x": 20,
-    "y": 65,
+    "x": 40,
+    "y": 265,
     "z": 44,
-    "width": 1240,
-    "height": 45,
+    "height": 43,
+    "width": 1360,
     "tabOrder": 85
   },
   "visual": {
     "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "139 filas con causas no conciliadas; 7,959 operaciones sin categoría. Referencia OTP interna ajustable. Hubs y horarios independientes.",
+                    "textStyle": {
+                      "fontFamily": "Aptos",
+                      "fontSize": "11pt",
+                      "color": "#163e52"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
     "visualContainerObjects": {
       "background": [
         {
@@ -27,7 +49,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#10192b'"
+                      "Value": "'#EDF6FF'"
                     }
                   }
                 }
@@ -40,28 +62,6 @@
                 }
               }
             }
-          }
-        }
-      ]
-    },
-    "objects": {
-      "general": [
-        {
-          "properties": {
-            "paragraphs": [
-              {
-                "textRuns": [
-                  {
-                    "value": "139 filas con causas no conciliadas; 7,959 operaciones sin categoría. Referencia OTP interna ajustable. Hubs y horarios independientes.",
-                    "textStyle": {
-                      "fontSize": "11pt",
-                      "fontFamily": "Segoe UI",
-                      "color": "#e8eef8"
-                    }
-                  }
-                ]
-              }
-            ]
           }
         }
       ]

@@ -1,21 +1,16 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "filter2",
   "position": {
-    "x": 520,
-    "y": 115,
+    "x": 730,
+    "y": 177,
     "z": 41,
-    "width": 235,
-    "height": 65,
+    "height": 76,
+    "width": 330,
     "tabOrder": 635
   },
   "visual": {
     "visualType": "slicer",
-    "syncGroup": {
-      "groupName": "US_Flights_filter2",
-      "fieldChanges": true,
-      "filterChanges": true
-    },
     "query": {
       "queryState": {
         "Values": {
@@ -39,6 +34,21 @@
         }
       }
     },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "visualContainerObjects": {
       "background": [
         {
@@ -55,7 +65,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#10192b'"
+                      "Value": "'#FFFFFF'"
                     }
                   }
                 }
@@ -93,7 +103,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#e8eef8'"
+                      "Value": "'#163E52'"
                     }
                   }
                 }
@@ -109,6 +119,11 @@
           }
         }
       ]
+    },
+    "syncGroup": {
+      "groupName": "US_Flights_filter2",
+      "fieldChanges": true,
+      "filterChanges": true
     }
   }
 }

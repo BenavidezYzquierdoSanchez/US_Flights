@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "method_card_0",
   "position": {
-    "x": 20,
-    "y": 140,
+    "x": 40,
+    "y": 265,
     "z": 14,
-    "width": 610,
+    "width": 440,
     "height": 330,
     "tabOrder": 160
   },
@@ -27,7 +27,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#10192b'"
+                      "Value": "'#FFFFFF'"
                     }
                   }
                 }
@@ -55,8 +55,8 @@
                     "value": "Objetivo",
                     "textStyle": {
                       "fontSize": "12pt",
-                      "fontFamily": "Segoe UI",
-                      "color": "#2ee6a6"
+                      "fontFamily": "Aptos",
+                      "color": "#243750"
                     }
                   }
                 ]
@@ -67,8 +67,8 @@
                     "value": "",
                     "textStyle": {
                       "fontSize": "12pt",
-                      "fontFamily": "Segoe UI",
-                      "color": "#e8eef8"
+                      "fontFamily": "Aptos",
+                      "color": "#243750"
                     }
                   }
                 ]
@@ -79,8 +79,8 @@
                     "value": "1. Qué queremos conocer",
                     "textStyle": {
                       "fontSize": "15pt",
-                      "fontFamily": "Segoe UI",
-                      "color": "#e8eef8"
+                      "fontFamily": "Aptos",
+                      "color": "#243750"
                     }
                   }
                 ]
@@ -91,8 +91,8 @@
                     "value": "",
                     "textStyle": {
                       "fontSize": "12pt",
-                      "fontFamily": "Segoe UI",
-                      "color": "#e8eef8"
+                      "fontFamily": "Aptos",
+                      "color": "#243750"
                     }
                   }
                 ]
@@ -103,8 +103,8 @@
                     "value": "Localizar diferencias de puntualidad y dimensionar demoras, cancelaciones y desvíos para priorizar un diagnóstico operativo. El dashboard describe los datos; no predice vuelos ni demuestra causas.",
                     "textStyle": {
                       "fontSize": "12pt",
-                      "fontFamily": "Segoe UI",
-                      "color": "#e8eef8"
+                      "fontFamily": "Aptos",
+                      "color": "#243750"
                     }
                   }
                 ]

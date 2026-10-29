@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "map",
   "position": {
-    "x": 20,
-    "y": 575,
+    "x": 43.481063658340048,
+    "y": 328.85576148267512,
     "z": 41,
-    "height": 440,
-    "width": 710,
+    "height": 460,
+    "width": 830,
     "tabOrder": 595
   },
   "visual": {
@@ -145,33 +145,6 @@
             }
           }
         }
-      ],
-      "mapControls": [
-        {
-          "properties": {
-            "zoom": {
-              "expr": {
-                "Literal": {
-                  "Value": "2.37D"
-                }
-              }
-            },
-            "centerLatitude": {
-              "expr": {
-                "Literal": {
-                  "Value": "35.435644155161924D"
-                }
-              }
-            },
-            "centerLongitude": {
-              "expr": {
-                "Literal": {
-                  "Value": "-114.46735000000001D"
-                }
-              }
-            }
-          }
-        }
       ]
     },
     "visualContainerObjects": {
@@ -190,7 +163,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#10192b'"
+                      "Value": "'#FFFFFF'"
                     }
                   }
                 }
@@ -228,7 +201,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#e8eef8'"
+                      "Value": "'#163E52'"
                     }
                   }
                 }
@@ -237,7 +210,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "14D"
+                  "Value": "13D"
                 }
               }
             }

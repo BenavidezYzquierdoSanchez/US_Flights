@@ -1,15 +1,15 @@
 table Causas
-	lineageTag: f6618b05-35ef-478f-9448-959a5577d462
+	lineageTag: a2e6673d-8fb6-40e7-ab14-6e1e45abdd60
 
 	column Campo
 		dataType: string
-		lineageTag: 29d599a6-eb31-4b7a-a5c0-5557ec3b9bf5
+		lineageTag: e359d7c3-1b11-406b-9e8d-40fcaa9a4793
 		summarizeBy: none
 		sourceColumn: Campo
 
 	column Causa
 		dataType: string
-		lineageTag: 13a1f2a9-a650-46a7-b35e-48aaff4a52bb
+		lineageTag: 4ba8feee-7022-4759-a3d2-33bc59dbdb16
 		summarizeBy: none
 		sourceColumn: Causa
 

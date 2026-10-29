@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "method_lead",
   "position": {
-    "x": 20,
-    "y": 75,
+    "x": 40,
+    "y": 175,
     "z": 14,
-    "width": 1240,
-    "height": 50,
+    "width": 1360,
+    "height": 70,
     "tabOrder": 95
   },
   "visual": {
@@ -27,7 +27,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#10192b'"
+                      "Value": "'#EDF6FF'"
                     }
                   }
                 }
@@ -55,8 +55,8 @@
                     "value": "Qué analizamos, cómo calculamos y hasta dónde permiten concluir los datos.",
                     "textStyle": {
                       "fontSize": "12pt",
-                      "fontFamily": "Segoe UI",
-                      "color": "#e8eef8"
+                      "fontFamily": "Aptos",
+                      "color": "#163E52"
                     }
                   }
                 ]

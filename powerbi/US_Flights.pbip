@@ -4,7 +4,7 @@
   "artifacts": [
     {
       "report": {
-        "path": "US_Flights.Report"
+        "path": "AeroPulse.Report"
       }
     }
   ],
